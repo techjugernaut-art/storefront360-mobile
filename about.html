@@ -77,15 +77,14 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--topia-navy);
-            font-family: 'Space Grotesk', sans-serif;
+            display: flex;
+            align-items: center;
             text-decoration: none;
         }
 
-        .logo-accent {
-            color: var(--topia-gold);
+        .logo img {
+            height: 45px;
+            width: auto;
         }
 
         .nav-links {
@@ -714,10 +713,13 @@
         }
 
         .footer-logo {
-            font-size: 2rem;
-            font-weight: 800;
             margin-bottom: 1rem;
-            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .footer-description {
@@ -793,7 +795,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">Topia<span class="logo-accent">.</span></a>
+            <a href="index.html" class="logo">
+                <img src="assets/images/resources/logo-1.png" alt="Topia Consult">
+            </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -1042,7 +1046,9 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo">Topia<span style="color: var(--topia-gold);">.</span></div>
+                    <div class="footer-logo">
+                        <img src="assets/images/resources/logo-2.png" alt="Topia Consult">
+                    </div>
                     <p class="footer-description">Empowering Africa's digital future through innovative technology consulting and solutions.</p>
                 </div>
                 <div>

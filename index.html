@@ -77,14 +77,13 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--topia-navy);
-            font-family: 'Space Grotesk', sans-serif;
+            display: flex;
+            align-items: center;
         }
 
-        .logo-accent {
-            color: var(--topia-gold);
+        .logo img {
+            height: 45px;
+            width: auto;
         }
 
         .nav-links {
@@ -297,9 +296,10 @@
         .service-card {
             background: white;
             border-radius: 20px;
-            padding: 3rem;
+            overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: relative;
         }
 
         .service-card:hover {
@@ -307,16 +307,38 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
 
+        .service-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.7) 100%);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
         .service-icon {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--topia-gold), #F5C866);
-            border-radius: 15px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
             color: white;
         }
 
@@ -515,10 +537,13 @@
         }
 
         .footer-logo {
-            font-size: 2rem;
-            font-weight: 800;
             margin-bottom: 1rem;
-            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .footer-description {
@@ -571,7 +596,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Topia<span class="logo-accent">.</span></div>
+            <a href="index.html" class="logo">
+                <img src="assets/images/resources/logo-1.png" alt="Topia Consult">
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -620,36 +647,52 @@
         </div>
         <div class="services-grid">
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-icon">
-                    <i class="fas fa-cloud"></i>
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(45, 91, 255, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop');">
                 </div>
-                <h3>Digital Solutions</h3>
-                <p>Cloud architecture, software development, API integration, and digital infrastructure for scalable business growth.</p>
-                <a href="services-digital.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Digital Solutions</h3>
+                    <p>Cloud architecture, software development, API integration, and digital infrastructure for scalable business growth.</p>
+                    <a href="services-digital.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-icon">
-                    <i class="fas fa-leaf"></i>
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&auto=format&fit=crop');">
                 </div>
-                <h3>ESG Consulting</h3>
-                <p>Environmental, Social, and Governance frameworks to ensure sustainable and compliant technology practices.</p>
-                <a href="services-esg.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>ESG Consulting</h3>
+                    <p>Environmental, Social, and Governance frameworks to ensure sustainable and compliant technology practices.</p>
+                    <a href="services-esg.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(231, 176, 68, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop');">
                 </div>
-                <h3>Revenue Assurance</h3>
-                <p>Financial systems optimization, fraud detection, and revenue protection through intelligent analytics.</p>
-                <a href="services-revenue.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Revenue Assurance</h3>
+                    <p>Financial systems optimization, fraud detection, and revenue protection through intelligent analytics.</p>
+                    <a href="services-revenue.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-icon">
-                    <i class="fas fa-shopping-cart"></i>
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(45, 91, 255, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&auto=format&fit=crop');">
                 </div>
-                <h3>Commerce Solutions</h3>
-                <p>E-commerce platforms, payment integration, conversational commerce, and digital marketplace development.</p>
-                <a href="services-commerce.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Commerce Solutions</h3>
+                    <p>E-commerce platforms, payment integration, conversational commerce, and digital marketplace development.</p>
+                    <a href="services-commerce.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -723,7 +766,9 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo">Topia<span style="color: var(--topia-gold);">.</span></div>
+                    <div class="footer-logo">
+                        <img src="assets/images/resources/logo-2.png" alt="Topia Consult">
+                    </div>
                     <p class="footer-description">Empowering Africa's digital future through innovative technology consulting and solutions.</p>
                 </div>
                 <div>

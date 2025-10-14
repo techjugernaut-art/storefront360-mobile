@@ -75,14 +75,14 @@
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--topia-gold);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
         }
 
         .nav-links {
@@ -355,44 +355,6 @@
             font-size: 0.9rem;
         }
 
-        /* Impact Stats Section */
-        .impact-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--topia-white);
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(231, 176, 68, 0.15);
-        }
-
-        .stat-item .number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--topia-gold), var(--topia-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item .label {
-            color: #666;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2642 100%);
@@ -438,6 +400,16 @@
             color: var(--topia-white);
             padding: 3rem 2rem 1.5rem;
             text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .footer-links {
@@ -490,11 +462,6 @@
             .nav-links {
                 display: none;
             }
-
-            .impact-stats {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
         }
     </style>
 </head>
@@ -503,7 +470,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-bolt"></i> TOPIA
+                <img src="assets/images/resources/logo-1.png" alt="Topia Consult">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -688,38 +655,6 @@
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section class="section process-bg">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Proven Impact & Results</h2>
-                <p>Delivering measurable financial protection and revenue optimization across Africa</p>
-            </div>
-
-            <div class="impact-stats">
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="number">$50M+</div>
-                    <div class="label">Revenue Recovered</div>
-                </div>
-
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="number">99.9%</div>
-                    <div class="label">Fraud Detection Rate</div>
-                </div>
-
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="number">30+</div>
-                    <div class="label">Industries Served</div>
-                </div>
-
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="number">15</div>
-                    <div class="label">African Countries</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section" data-aos="fade-up">
         <h2>Protect Your Revenue Streams</h2>
@@ -729,6 +664,9 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="footer-logo">
+            <img src="assets/images/resources/logo-2.png" alt="Topia Consult">
+        </div>
         <div class="footer-links">
             <a href="index.html">Home</a>
             <a href="index.html#services">Services</a>
