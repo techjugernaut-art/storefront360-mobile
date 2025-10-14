@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Assurance - Topia Consult</title>
+    <meta name="description" content="Revenue assurance, fraud detection, and financial optimization services for telecom and technology companies in Africa.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Analytics -->
+    <!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        :root {
+            --topia-gold: #E7B044;
+            --topia-navy: #0A1628;
+            --topia-blue: #2D5BFF;
+            --topia-charcoal: #1A1A1A;
+            --topia-light: #F5F7FA;
+            --topia-green: #10B981;
+            --topia-white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--topia-charcoal);
+            background-color: var(--topia-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--topia-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--topia-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .nav-cta {
+            background: var(--topia-gold);
+            color: var(--topia-navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--topia-white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 176, 68, 0.3);
+        }
+
+        /* Hero Section */
+        .service-hero {
+            margin-top: 80px;
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2642 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(231,176,68,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            color: var(--topia-gold);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: var(--topia-gold);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .service-hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--topia-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .service-hero .hero-icon {
+            font-size: 4rem;
+            color: var(--topia-gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Overview Section */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .overview-card {
+            background: var(--topia-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(231, 176, 68, 0.2);
+            border-color: var(--topia-gold);
+        }
+
+        .overview-card .icon {
+            font-size: 2.5rem;
+            color: var(--topia-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .overview-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Process Section */
+        .process-bg {
+            background: linear-gradient(135deg, var(--topia-light) 0%, #e8eef5 100%);
+        }
+
+        .process-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .process-step:nth-child(even) .step-content {
+            order: 2;
+        }
+
+        .process-step:nth-child(even) .step-number {
+            order: 1;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, var(--topia-gold), #f0c060);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--topia-navy);
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+        }
+
+        .step-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Technologies Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: var(--topia-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(45, 91, 255, 0.15);
+        }
+
+        .tech-item .icon {
+            font-size: 3rem;
+            color: var(--topia-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tech-item h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--topia-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-item p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Impact Stats Section */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--topia-white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(231, 176, 68, 0.15);
+        }
+
+        .stat-item .number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--topia-gold), var(--topia-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item .label {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2642 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: var(--topia-white);
+        }
+
+        .cta-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--topia-gold);
+            color: var(--topia-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--topia-white);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(231, 176, 68, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--topia-charcoal);
+            color: var(--topia-white);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--topia-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-step:nth-child(even) .step-content,
+            .process-step:nth-child(even) .step-number {
+                order: initial;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .impact-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i> TOPIA
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="index.html#services">Services</a> / Revenue Assurance
+            </div>
+            <div class="hero-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>Revenue Assurance</h1>
+            <p>Protecting revenue streams, detecting fraud, and optimizing financial systems for telecom and technology companies across Africa</p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Comprehensive Revenue Protection</h2>
+                <p>From revenue leakage prevention to advanced fraud detection, we deliver end-to-end financial assurance solutions</p>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fas fa-lock"></i></div>
+                    <h3>Revenue Leakage Prevention</h3>
+                    <p>Identify and eliminate revenue loss across billing, charging, and financial systems. Implement automated controls, real-time monitoring, and reconciliation processes to safeguard every revenue stream.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>Fraud Detection & Prevention</h3>
+                    <p>Advanced fraud analytics using machine learning and behavioral analysis. Real-time detection of subscription fraud, premium rate service abuse, interconnect fraud, and revenue manipulation.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Financial Analytics & BI</h3>
+                    <p>Transform financial data into actionable insights with comprehensive dashboards, predictive analytics, and revenue intelligence platforms. KPI tracking, trend analysis, and performance optimization.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Billing & Charging Systems</h3>
+                    <p>Design, implement, and optimize billing infrastructure for complex pricing models. Rating engine configuration, CDR mediation, convergent billing, and revenue share management.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Audit & Compliance</h3>
+                    <p>Comprehensive revenue assurance audits, regulatory compliance monitoring, and internal control frameworks. Financial reconciliation, settlement verification, and compliance reporting.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Revenue Optimization</h3>
+                    <p>Strategic revenue enhancement through pricing optimization, margin improvement, and cost reduction initiatives. Revenue forecasting, scenario modeling, and profitability analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-bg">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Revenue Assurance Methodology</h2>
+                <p>A proven five-phase approach to maximizing revenue protection and financial integrity</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step" data-aos="fade-up">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Assessment & Discovery</h3>
+                        <p>Comprehensive analysis of your revenue ecosystem including billing systems, charging platforms, and financial workflows. We identify revenue leakage points, fraud vulnerabilities, and process inefficiencies through data analysis, system audits, and stakeholder interviews.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Risk Analysis & Strategy</h3>
+                        <p>Detailed risk mapping and prioritization of revenue assurance initiatives. We develop a customized framework aligned with your business model, regulatory requirements, and industry best practices. Define KPIs, control mechanisms, and success metrics.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Implementation & Integration</h3>
+                        <p>Deploy revenue assurance tools, fraud detection systems, and analytics platforms. Configure automated controls, reconciliation processes, and real-time monitoring dashboards. Seamless integration with existing billing, CRM, and financial systems.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Testing & Validation</h3>
+                        <p>Rigorous testing of all revenue assurance controls and fraud detection algorithms. Validate data accuracy, reconciliation processes, and alerting mechanisms. Conduct simulated fraud scenarios and stress testing to ensure system resilience.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Monitoring & Optimization</h3>
+                        <p>Continuous monitoring of revenue streams with proactive anomaly detection. Regular reporting, trend analysis, and process optimization. Ongoing training, knowledge transfer, and system enhancement to adapt to evolving fraud patterns and business changes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Technologies & Platforms</h2>
+                <p>Leveraging industry-leading tools and technologies for comprehensive revenue assurance</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Tableau</h4>
+                    <p>Data Visualization</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="icon"><i class="fas fa-chart-area"></i></div>
+                    <h4>Power BI</h4>
+                    <p>Business Intelligence</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon"><i class="fas fa-database"></i></div>
+                    <h4>SQL</h4>
+                    <p>Data Analytics</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="icon"><i class="fab fa-python"></i></div>
+                    <h4>Python</h4>
+                    <p>Analytics & Automation</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon"><i class="fas fa-cube"></i></div>
+                    <h4>SAP</h4>
+                    <p>Financial Systems</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="icon"><i class="fas fa-server"></i></div>
+                    <h4>Oracle</h4>
+                    <p>Enterprise Database</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>Machine Learning</h4>
+                    <p>Fraud Detection</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="icon"><i class="fas fa-project-diagram"></i></div>
+                    <h4>Apache Spark</h4>
+                    <p>Big Data Processing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section process-bg">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Proven Impact & Results</h2>
+                <p>Delivering measurable financial protection and revenue optimization across Africa</p>
+            </div>
+
+            <div class="impact-stats">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="number">$50M+</div>
+                    <div class="label">Revenue Recovered</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="number">99.9%</div>
+                    <div class="label">Fraud Detection Rate</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="number">30+</div>
+                    <div class="label">Industries Served</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="number">15</div>
+                    <div class="label">African Countries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+        <h2>Protect Your Revenue Streams</h2>
+        <p>Partner with us to eliminate revenue leakage and maximize financial performance</p>
+        <a href="index.html#contact" class="cta-button">Schedule a Revenue Assessment</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <p>&copy; 2025 Topia Consult. Powering Africa's Digital Transformation.</p>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

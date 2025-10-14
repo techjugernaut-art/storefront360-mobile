@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commerce Solutions - Topia Consult</title>
+    <meta name="description" content="E-commerce platforms, payment integration, and conversational commerce solutions for Africa's digital marketplace.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Analytics -->
+    <!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        :root {
+            --topia-gold: #E7B044;
+            --topia-navy: #0A1628;
+            --topia-blue: #2D5BFF;
+            --topia-charcoal: #1A1A1A;
+            --topia-light: #F5F7FA;
+            --topia-green: #10B981;
+            --topia-white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--topia-charcoal);
+            background-color: var(--topia-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--topia-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--topia-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .nav-cta {
+            background: var(--topia-gold);
+            color: var(--topia-navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--topia-white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 176, 68, 0.3);
+        }
+
+        /* Hero Section */
+        .service-hero {
+            margin-top: 80px;
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2642 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(231,176,68,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            color: var(--topia-gold);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: var(--topia-gold);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .service-hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--topia-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .service-hero .hero-icon {
+            font-size: 4rem;
+            color: var(--topia-gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Overview Section */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .overview-card {
+            background: var(--topia-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(231, 176, 68, 0.2);
+            border-color: var(--topia-gold);
+        }
+
+        .overview-card .icon {
+            font-size: 2.5rem;
+            color: var(--topia-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .overview-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Process Section */
+        .process-bg {
+            background: linear-gradient(135deg, var(--topia-light) 0%, #e8eef5 100%);
+        }
+
+        .process-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .process-step:nth-child(even) .step-content {
+            order: 2;
+        }
+
+        .process-step:nth-child(even) .step-number {
+            order: 1;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, var(--topia-gold), #f0c060);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--topia-navy);
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+        }
+
+        .step-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Technologies Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: var(--topia-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(45, 91, 255, 0.15);
+        }
+
+        .tech-item .icon {
+            font-size: 3rem;
+            color: var(--topia-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tech-item h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--topia-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-item p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Impact Stats Section */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--topia-gold), var(--topia-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item .label {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2642 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: var(--topia-white);
+        }
+
+        .cta-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--topia-gold);
+            color: var(--topia-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--topia-white);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(231, 176, 68, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--topia-charcoal);
+            color: var(--topia-white);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--topia-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-step:nth-child(even) .step-content,
+            .process-step:nth-child(even) .step-number {
+                order: initial;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i> TOPIA
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="index.html#services">Services</a> / Commerce Solutions
+            </div>
+            <div class="hero-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h1>Commerce Solutions</h1>
+            <p>Powering Africa's digital marketplace with cutting-edge e-commerce platforms, seamless payment integration, and conversational commerce solutions</p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Complete Commerce Ecosystem</h2>
+                <p>From online storefronts to payment processing and customer engagement, we build end-to-end commerce solutions for Africa's growing digital economy</p>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fas fa-store"></i></div>
+                    <h3>E-Commerce Platforms</h3>
+                    <p>Build robust online stores with custom features, product catalogs, shopping carts, and checkout experiences. Mobile-first designs optimized for African markets and connectivity conditions.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>Payment Gateway Integration</h3>
+                    <p>Seamless integration with local and international payment providers. Support for mobile money, card payments, bank transfers, and emerging payment methods across Africa.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>Conversational Commerce</h3>
+                    <p>Sell directly through WhatsApp, Telegram, and SMS. AI-powered chatbots, automated order processing, and customer support integrated with your commerce platform.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon"><i class="fas fa-boxes"></i></div>
+                    <h3>Inventory Management</h3>
+                    <p>Real-time stock tracking, automated reordering, multi-warehouse support, and supplier integration. Complete visibility across your entire supply chain.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Customer Experience Analytics</h3>
+                    <p>Track customer journeys, conversion funnels, and shopping behavior. Data-driven insights to optimize your commerce operations and increase sales.</p>
+                </div>
+
+                <div class="overview-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Omnichannel Commerce</h3>
+                    <p>Unified commerce experience across web, mobile, social media, and physical stores. Synchronized inventory, orders, and customer data across all channels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-bg">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Implementation Process</h2>
+                <p>A proven methodology for launching successful commerce platforms</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step" data-aos="fade-up">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Business Analysis & Strategy</h3>
+                        <p>We start by understanding your products, target market, and business model. Our team analyzes your competitive landscape, customer segments, and unique value proposition to design a commerce strategy tailored to African markets.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Platform Design & Architecture</h3>
+                        <p>Create user-centric designs with intuitive navigation, fast checkout flows, and mobile-first interfaces. We select the optimal technology stack and payment providers based on your target markets and customer preferences.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Development & Integration</h3>
+                        <p>Build your commerce platform using scalable architecture and secure coding practices. Integrate payment gateways, shipping providers, inventory systems, and marketing tools to create a comprehensive ecosystem.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Testing & Optimization</h3>
+                        <p>Rigorous testing of payment flows, security protocols, and user experience across devices and network conditions. Performance optimization for fast loading on mobile networks common across Africa.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Launch & Growth Support</h3>
+                        <p>Smooth platform launch with marketing integration and customer onboarding. Ongoing optimization, feature enhancements, and strategic support to scale your commerce operations across African markets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Commerce Technology Stack</h2>
+                <p>Leveraging the best platforms and tools for African e-commerce success</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon"><i class="fab fa-shopify"></i></div>
+                    <h4>Shopify</h4>
+                    <p>E-Commerce Platform</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="icon"><i class="fab fa-wordpress"></i></div>
+                    <h4>WooCommerce</h4>
+                    <p>WordPress Commerce</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon"><i class="fab fa-stripe"></i></div>
+                    <h4>Stripe</h4>
+                    <p>Payment Processing</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h4>PayStack</h4>
+                    <p>African Payments</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h4>Flutterwave</h4>
+                    <p>Mobile Money</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                    <h4>WhatsApp Business</h4>
+                    <p>Conversational Commerce</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="icon"><i class="fas fa-comments"></i></div>
+                    <h4>Twilio</h4>
+                    <p>SMS & Communication</p>
+                </div>
+
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="icon"><i class="fab fa-react"></i></div>
+                    <h4>React</h4>
+                    <p>Frontend Development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats Section -->
+    <section class="section" style="background: var(--topia-light);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Commerce at Scale</h2>
+                <p>Delivering measurable results for businesses across Africa's digital marketplace</p>
+            </div>
+
+            <div class="impact-stats">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="number">500K+</div>
+                    <div class="label">Transactions Processed</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="number">20+</div>
+                    <div class="label">Payment Integrations</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="number">98%</div>
+                    <div class="label">Platform Uptime</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="number">12</div>
+                    <div class="label">African Countries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+        <h2>Ready to Grow Your Digital Commerce?</h2>
+        <p>Join Africa's e-commerce revolution with commerce solutions built for scale and growth</p>
+        <a href="index.html#contact" class="cta-button">Launch Your Platform</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <p>&copy; 2025 Topia Consult. Powering Africa's Digital Transformation.</p>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESG Consulting - Topia Consult</title>
+    <meta name="description" content="Environmental, Social, and Governance consulting for sustainable technology companies in Africa.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Analytics -->
+    <!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        :root {
+            --topia-gold: #E7B044;
+            --topia-navy: #0A1628;
+            --topia-blue: #2D5BFF;
+            --topia-charcoal: #1A1A1A;
+            --topia-light: #F5F7FA;
+            --topia-green: #10B981;
+            --topia-white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--topia-charcoal);
+            background-color: var(--topia-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--topia-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--topia-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .nav-cta {
+            background: var(--topia-gold);
+            color: var(--topia-navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--topia-white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 176, 68, 0.3);
+        }
+
+        /* Hero Section */
+        .service-hero {
+            margin-top: 80px;
+            min-height: 60vh;
+            background: linear-gradient(135deg, #0d5028 0%, var(--topia-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.2)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            color: var(--topia-white);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: var(--topia-white);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .service-hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--topia-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .service-hero .hero-icon {
+            font-size: 4rem;
+            color: var(--topia-white);
+            margin-bottom: 1rem;
+        }
+
+        .service-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ESG Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pillar-card {
+            background: var(--topia-white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 5px solid var(--topia-green);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .pillar-card .icon {
+            font-size: 3rem;
+            color: var(--topia-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: var(--topia-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pillar-card li {
+            padding: 0.7rem 0;
+            color: #666;
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .pillar-card li::before {
+            content: '✓';
+            color: var(--topia-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Frameworks Section */
+        .frameworks-bg {
+            background: linear-gradient(135deg, var(--topia-light) 0%, #e8eef5 100%);
+        }
+
+        .frameworks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .framework-card {
+            background: var(--topia-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(231, 176, 68, 0.2);
+        }
+
+        .framework-card .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--topia-green), #14d998);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .framework-card h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--topia-navy);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .framework-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Impact Section */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--topia-green), var(--topia-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item .label {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0d5028 0%, var(--topia-green) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: var(--topia-white);
+        }
+
+        .cta-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--topia-white);
+            color: var(--topia-green);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            background: var(--topia-gold);
+            color: var(--topia-navy);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(231, 176, 68, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--topia-charcoal);
+            color: var(--topia-white);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--topia-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i> TOPIA
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="index.html#services">Services</a> / ESG Consulting
+            </div>
+            <div class="hero-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h1>ESG Consulting</h1>
+            <p>Building sustainable, responsible, and impactful technology companies across Africa</p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Sustainability at the Core</h2>
+                <p>Integrate Environmental, Social, and Governance frameworks into your technology operations for long-term success and impact</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fas fa-globe-africa"></i></div>
+                    <h3>Environmental</h3>
+                    <ul>
+                        <li>Carbon footprint measurement and reduction strategies</li>
+                        <li>Green data center and infrastructure design</li>
+                        <li>Renewable energy integration for tech operations</li>
+                        <li>E-waste management and circular economy practices</li>
+                        <li>Environmental impact assessments</li>
+                        <li>Climate risk analysis and adaptation planning</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>Social</h3>
+                    <ul>
+                        <li>Digital inclusion and accessibility initiatives</li>
+                        <li>Employee wellbeing and diversity programs</li>
+                        <li>Community impact measurement and reporting</li>
+                        <li>Ethical AI and responsible technology development</li>
+                        <li>Stakeholder engagement strategies</li>
+                        <li>Human rights in technology supply chains</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Governance</h3>
+                    <ul>
+                        <li>ESG governance framework development</li>
+                        <li>Board and leadership ESG training</li>
+                        <li>Compliance with international ESG standards</li>
+                        <li>Risk management and internal controls</li>
+                        <li>Transparent reporting and disclosure systems</li>
+                        <li>Ethical business practices and anti-corruption</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frameworks Section -->
+    <section class="section frameworks-bg">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Global Standards & Frameworks</h2>
+                <p>We align your ESG strategy with internationally recognized frameworks and reporting standards</p>
+            </div>
+
+            <div class="frameworks-grid">
+                <div class="framework-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="badge">UN SDGs</div>
+                    <h4>Sustainable Development Goals</h4>
+                    <p>Align business operations with the UN's 17 global goals for sustainable development</p>
+                </div>
+
+                <div class="framework-card" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="badge">GRI</div>
+                    <h4>Global Reporting Initiative</h4>
+                    <p>Comprehensive sustainability reporting using world's most widely used standards</p>
+                </div>
+
+                <div class="framework-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="badge">SASB</div>
+                    <h4>Sustainability Accounting</h4>
+                    <p>Industry-specific ESG disclosure standards for investors and stakeholders</p>
+                </div>
+
+                <div class="framework-card" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="badge">TCFD</div>
+                    <h4>Climate Disclosures</h4>
+                    <p>Climate-related financial risk disclosure recommendations</p>
+                </div>
+
+                <div class="framework-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="badge">ISO 14001</div>
+                    <h4>Environmental Management</h4>
+                    <p>International standard for environmental management systems</p>
+                </div>
+
+                <div class="framework-card" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="badge">B Corp</div>
+                    <h4>Certified B Corporation</h4>
+                    <p>Certification for businesses balancing purpose and profit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Driving Measurable Impact</h2>
+                <p>Our ESG consulting delivers tangible results for businesses and communities across Africa</p>
+            </div>
+
+            <div class="impact-stats">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="number">40%</div>
+                    <div class="label">Average Carbon Reduction</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="number">25+</div>
+                    <div class="label">ESG Reports Published</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="number">50K+</div>
+                    <div class="label">Lives Impacted</div>
+                </div>
+
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="number">15</div>
+                    <div class="label">African Countries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+        <h2>Build a Sustainable Future</h2>
+        <p>Partner with us to create lasting positive impact through ESG excellence</p>
+        <a href="index.html#contact" class="cta-button">Start Your ESG Journey</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <p>&copy; 2025 Topia Consult. Powering Africa's Digital Transformation.</p>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

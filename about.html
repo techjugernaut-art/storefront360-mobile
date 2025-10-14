@@ -1,740 +1,1091 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About || Mibooz || Mibooz HTML Template For Business</title>
-    <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Mibooz HTML Template For Business" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Topia Consult - Leading Africa's Digital Transformation</title>
+    <meta name="description" content="Learn about Topia Consult's mission to power Africa's digital transformation through innovative technology consulting, ESG solutions, and sustainable growth.">
 
-    <!-- fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Federo&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="assets/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css" />
-    <link rel="stylesheet" href="assets/vendors/mibooz-icons/style.css">
-    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/the-sayinistic-font/stylesheet.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/vendors/bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" href="assets/vendors/bootstrap-select/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/mibooz.css" />
-    <link rel="stylesheet" href="assets/css/mibooz-responsive.css" />
+    <!-- Google Analytics -->
+    <!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        :root {
+            --topia-gold: #E7B044;
+            --topia-navy: #0A1628;
+            --topia-blue: #2D5BFF;
+            --topia-charcoal: #1A1A1A;
+            --topia-light: #F5F7FA;
+            --topia-green: #10B981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--topia-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--topia-navy);
+            font-family: 'Space Grotesk', sans-serif;
+            text-decoration: none;
+        }
+
+        .logo-accent {
+            color: var(--topia-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--topia-charcoal);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 176, 68, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 176, 68, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2844 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23E7B044" fill-opacity="0.1"/></svg>');
+            background-size: 60px 60px;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(231, 176, 68, 0.1);
+            color: var(--topia-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(231, 176, 68, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #fff, var(--topia-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .mission-vision-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .mission-box, .vision-box {
+            background: var(--topia-light);
+            padding: 4rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .mission-box:hover, .vision-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .mission-box::before, .vision-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--topia-gold), var(--topia-blue));
+        }
+
+        .mission-icon, .vision-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .mission-box h2, .vision-box h2 {
+            font-size: 2.5rem;
+            color: var(--topia-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-box p, .vision-box p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 8rem 0;
+            background: var(--topia-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-badge {
+            color: var(--topia-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--topia-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .values-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--topia-gold), var(--topia-blue));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-card h3 {
+            font-size: 1.8rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--topia-gold), var(--topia-blue));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--topia-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            color: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(231, 176, 68, 0.4);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.6rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 8rem 0;
+            background: var(--topia-light);
+        }
+
+        .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--topia-navy), var(--topia-blue));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            content: '\f007';
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 1.5rem;
+            color: var(--topia-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-info p {
+            color: var(--topia-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--topia-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--topia-navy);
+            transition: all 0.3s;
+        }
+
+        .team-social a:hover {
+            background: var(--topia-gold);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Africa Impact Section */
+        .africa-impact {
+            padding: 8rem 0;
+            background: var(--topia-navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .africa-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .africa-content h2 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .africa-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .africa-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--topia-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .africa-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .africa-features li {
+            color: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .africa-features i {
+            color: var(--topia-gold);
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--topia-light) 0%, white 100%);
+        }
+
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem;
+            text-align: center;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--topia-gold), var(--topia-blue));
+        }
+
+        .cta-container h2 {
+            font-size: 3rem;
+            color: var(--topia-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-container p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(231, 176, 68, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--topia-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--topia-navy);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--topia-navy);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--topia-navy);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 80px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-year {
+                left: 30px;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .mission-vision-container { grid-template-columns: 1fr; }
+            .africa-container { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .africa-stats { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .mission-box, .vision-box { padding: 2.5rem; }
+        }
+    </style>
 </head>
-
 <body>
-    <div class="preloader">
-        <img class="preloader__image" width="60" src="assets/images/loader.png" alt="" />
-    </div>
-    <!-- /.preloader -->
-    <div class="page-wrapper">
-        <header class="main-header clearfix">
-            <nav class="main-menu clearfix">
-                <div class="main-menu-wrapper">
-                    <div class="main-menu-wrapper__logo">
-                        <a href="index.html"><img src="assets/images/resources/logo-1.png" alt=""></a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Topia<span class="logo-accent">.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="index.html#contact" class="cta-btn">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up">
+                <span class="hero-badge">Our Story</span>
+                <h1>About <span class="hero-gradient">Topia Consult</span></h1>
+                <p>Leading Africa's digital transformation through innovative technology consulting, sustainable solutions, and world-class expertise tailored for African markets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="mission-vision-container">
+            <div class="mission-box" data-aos="fade-right">
+                <div class="mission-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2>Our Mission</h2>
+                <p>To empower African businesses and organizations with cutting-edge technology solutions that drive digital transformation, enhance operational efficiency, and create sustainable value. We are committed to bridging the digital divide by providing world-class consulting services that understand and address the unique challenges and opportunities of the African market.</p>
+            </div>
+            <div class="vision-box" data-aos="fade-left">
+                <div class="vision-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h2>Our Vision</h2>
+                <p>To be the leading technology consulting partner for Africa's digital revolution, recognized for our innovation, excellence, and measurable impact. We envision a digitally empowered Africa where businesses leverage technology to compete globally while maintaining sustainable and ethical practices that benefit communities across the continent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">OUR CORE VALUES</div>
+            <h2 class="section-title">What Drives Us Forward</h2>
+            <p class="section-description">Our values define who we are and guide every decision we make</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation</h3>
+                <p>We continuously push boundaries, embracing cutting-edge technologies and creative solutions to solve complex challenges. Innovation is not just what we do, it's who we are.</p>
+            </div>
+            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="value-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Excellence</h3>
+                <p>We are committed to delivering world-class quality in every project. Our team strives for excellence in execution, ensuring that our solutions exceed client expectations and industry standards.</p>
+            </div>
+            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="value-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Impact</h3>
+                <p>We measure our success by the tangible results we create for our clients and communities. Every solution we build is designed to generate measurable, sustainable impact across Africa.</p>
+            </div>
+            <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="value-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Partnership</h3>
+                <p>We believe in building lasting relationships based on trust, transparency, and mutual success. Our clients are partners in transformation, and we are invested in their long-term growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">OUR JOURNEY</div>
+            <h2 class="section-title">Milestones & Achievements</h2>
+            <p class="section-description">Charting our path to becoming Africa's leading technology consulting firm</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Foundation & Vision</h3>
+                        <p>Topia Consult was founded with a bold vision: to bridge Africa's digital divide through world-class technology consulting. We established our core values and assembled a team of industry experts.</p>
                     </div>
-                    <div class="main-menu-wrapper__main-menu">
-                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                        <ul class="main-menu__list">
-                            <li class="dropdown">
-                                <a href="index.html">Home</a>
-                                <ul>
-                                    <li>
-                                        <a href="index.html">Home One</a>
-                                    </li>
-                                    <li><a href="index2.html">Home Two</a></li>
-                                    <li><a href="index3.html">Home Three</a></li>
-                                    <li class="dropdown">
-                                        <a href="#">Header Styles</a>
-                                        <ul>
-                                            <li><a href="index.html">Header One</a></li>
-                                            <li><a href="index2.html">Header Two</a></li>
-                                            <li><a href="index3.html">Header Two</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown  ">
-                                <a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="team.html">Team</a></li>
-                                    <li><a href="faq.html">FAQs</a></li>
-                                    <li><a href="404.html">404 Error</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="services.html">Services</a>
-                                <ul>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="mobile-application.html">Mobile Application</a></li>
-                                    <li><a href="digital-marketing.html">Digital Marketing</a></li>
-                                    <li><a href="graphic-designing.html">Graphic Designing</a></li>
-                                    <li><a href="website-development.html">Website Development</a></li>
-                                    <li><a href="social-marketing.html">Social Marketing</a></li>
-                                    <li><a href="content-writing.html">Content Writting</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">Projects</a>
-                                <ul>
-                                    <li><a href="project.html">Projects</a></li>
-                                    <li><a href="project-details.html">Project Details</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">Blog</a>
-                                <ul>
-                                    <li><a href="blog.html">Blog Posts</a></li>
-                                    <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                    <div class="timeline-year">2015</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Pan-African Expansion</h3>
+                        <p>Extended operations across 10+ African countries, delivering digital transformation projects for major enterprises in telecommunications, finance, and government sectors.</p>
                     </div>
-                    <div class="main-menu-wrapper__right">
-                        <div class="main-menu-wrapper__call">
-                            <div class="main-menu-wrapper__call-icon">
-                                <img src="assets/images/icon/phone-icon.png" alt="">
-                            </div>
-                            <div class="main-menu-wrapper__call-number">
-                                <p>Call Anytime</p>
-                                <h5><a href="tel:926668880000">+ 92 666 888 0000</a></h5>
-                            </div>
-                        </div>
-                        <div class="main-menu-wrapper__search-box">
-                            <a href="#" class="main-menu-wrapper__search search-toggler icon-magnifying-glass"></a>
-                        </div>
+                    <div class="timeline-year">2017</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>ESG Leadership</h3>
+                        <p>Launched dedicated ESG consulting practice, helping African organizations implement sustainable technology frameworks aligned with global standards and local contexts.</p>
+                    </div>
+                    <div class="timeline-year">2019</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Digital Commerce Revolution</h3>
+                        <p>Pioneered conversational commerce solutions for African markets, enabling businesses to leverage WhatsApp, SMS, and mobile platforms for e-commerce growth.</p>
+                    </div>
+                    <div class="timeline-year">2021</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Cloud & AI Excellence</h3>
+                        <p>Became certified partners with major cloud providers, delivering advanced cloud infrastructure and AI-powered solutions across 20+ African countries, impacting millions of users.</p>
+                    </div>
+                    <div class="timeline-year">2023</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Sustainable Growth Era</h3>
+                        <p>Reached 150+ successful projects, established thought leadership in Africa's tech ecosystem, and committed to training 10,000+ African tech professionals by 2030.</p>
+                    </div>
+                    <div class="timeline-year">2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">OUR TEAM</div>
+            <h2 class="section-title">Meet The Experts</h2>
+            <p class="section-description">Dedicated professionals driving Africa's digital transformation</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="team-image"></div>
+                <div class="team-info">
+                    <h3>Leadership Team</h3>
+                    <p>Executive Leadership</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-            </nav>
-        </header>
-
-        <div class="stricky-header stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
-
-        <!--Page Header Start-->
-        <section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
             </div>
-            <div class="container">
-                <div class="page-header__inner">
-                    <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li>About</li>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="team-image"></div>
+                <div class="team-info">
+                    <h3>Technology Experts</h3>
+                    <p>Technical Directors</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="team-image"></div>
+                <div class="team-info">
+                    <h3>Consulting Team</h3>
+                    <p>Senior Consultants</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="team-image"></div>
+                <div class="team-info">
+                    <h3>Innovation Lab</h3>
+                    <p>Research & Development</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Africa Impact Section -->
+    <section class="africa-impact">
+        <div class="africa-container">
+            <div class="africa-content" data-aos="fade-right">
+                <h2>Our Pan-African Impact</h2>
+                <p>We're not just consultants - we're partners in Africa's digital revolution. With deep local expertise and global best practices, we deliver solutions that work for African businesses and communities.</p>
+                <ul class="africa-features">
+                    <li><i class="fas fa-check-circle"></i> Pan-African presence across 20+ countries</li>
+                    <li><i class="fas fa-check-circle"></i> Context-aware solutions for local markets</li>
+                    <li><i class="fas fa-check-circle"></i> Partnership with global technology leaders</li>
+                    <li><i class="fas fa-check-circle"></i> Commitment to sustainable development</li>
+                    <li><i class="fas fa-check-circle"></i> Track record of measurable business impact</li>
+                </ul>
+            </div>
+            <div class="africa-visual" data-aos="fade-left">
+                <div class="africa-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Successful Projects</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">African Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Industry Sectors</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container" data-aos="fade-up">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Partner with Africa's leading technology consulting firm and unlock your digital potential</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">Start Your Journey</a>
+                <a href="index.html#services" class="btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Topia<span style="color: var(--topia-gold);">.</span></div>
+                    <p class="footer-description">Empowering Africa's digital future through innovative technology consulting and solutions.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services-digital.html">Digital Solutions</a></li>
+                        <li><a href="services-esg.html">ESG Consulting</a></li>
+                        <li><a href="services-revenue.html">Revenue Assurance</a></li>
+                        <li><a href="services-commerce.html">Commerce Solutions</a></li>
                     </ul>
-                    <h2>About us</h2>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">hello@topiaconsult.com</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
-        <!--Page Header End-->
-
-        <!--About Page Start-->
-        <section class="about-page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="about-page__left">
-                            <ul class="list-unstyled about-page__images">
-                                <li>
-                                    <div class="about-page__img-1">
-                                        <img src="assets/images/resources/about-page-img-1.jpg" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="about-page__img-2">
-                                        <img src="assets/images/resources/about-page-img-2.jpg" alt="">
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="about-page__badge"><img data-tilt
-                                    src="assets/images/resources/about-page-badge.png" alt=""></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="about-page__right">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">about company</span>
-                                <h2 class="section-title__title">get to know about agency</h2>
-                            </div>
-                            <p class="about-page__right-text-1">There are many variations of pass of lorem ipsum
-                                available but the majority have suffered alteration in some Injected humour randomised
-                                words.</p>
-                            <h4 class="about-page__right-text-2">providing innovative Website solutions for future.</h4>
-                            <a href="about.html" class="thm-btn abut-page__btn">Discover More</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Topia Consult. All rights reserved. Powering Africa's Digital Transformation.</p>
             </div>
-        </section>
-        <!--About Page End-->
-
-        <!--Brand One Start-->
-        <section class="brand-one">
-            <div class="container">
-                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
-                    "0": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 2
-                    },
-                    "375": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 2
-                    },
-                    "575": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 3
-                    },
-                    "767": {
-                        "spaceBetween": 50,
-                        "slidesPerView": 4
-                    },
-                    "991": {
-                        "spaceBetween": 50,
-                        "slidesPerView": 5
-                    },
-                    "1199": {
-                        "spaceBetween": 100,
-                        "slidesPerView": 5
-                    }
-                }}'>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-1.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-2.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-3.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-4.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-5.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-1.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-2.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-3.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-4.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-5.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Brand One End-->
-
-        <!--Design Studio Start-->
-        <section class="design-studio services-page-design-studio">
-            <div class="design-studio-bg-box">
-                <div class="design-studio-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-                    style="background-image: url(assets/images/backgrounds/design-studio-bg.jpg)">
-
-                </div>
-            </div>
-            <div class="container">
-                <div class="col-lg-12">
-                    <div class="design-studio__inner">
-                        <h2 class="design-studio__title">Design <span>Studio</span> that gets <br> excited about</h2>
-                        <div class="design-studio__video-link">
-                            <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
-                                <div class="design-studio__video-icon">
-                                    <span class="icon-play-button"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Design Studio End-->
-
-        <!--Testimonial Two Start-->
-        <section class="testimonial-two about-page-testimonial-two">
-            <div class="testimonial-two-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"><img
-                    src="assets/images/shapes/testimonial-two-shape.png" alt=""></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="testimonial-two__left wow slideInLeft" data-wow-delay="100ms"
-                            data-wow-duration="2500ms">
-                            <div class="testimonial-two__img">
-                                <img src="assets/images/testimonial/testimonial-two-img.jpg" alt="">
-                                <div class="testimonial-two__content">
-                                    <h3 class="testimonial-two__title">#Happy <span>Customers</span></h3>
-                                </div>
-                                <div class="testimonial-two__box-1"></div>
-                                <div class="testimonial-two__box-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="testimonial-two__right">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">our customer feedbacks</span>
-                                <h2 class="section-title__title">What they’re saying</h2>
-                            </div>
-                            <div class="testimonial-two__carousel owl-theme owl-carousel">
-                                <!--Testimonial Two Single-->
-                                <div class="testimonial-two__single">
-                                    <p class="testimonial-two__text">This is due to their excellent service, competitive
-                                        pricing and customer support. It’s throughly refresing to get such a personal
-                                        touch. Duis aute lorem ipsum is simply free text irure dolor in reprehen.</p>
-                                    <div class="testimonial-two__client-info">
-                                        <div class="testimonial-two__client-img">
-                                            <img src="assets/images/testimonial/testimonial-one-img-2.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-two__client-details">
-                                            <h4 class="testimonial-two__client-name">kevin martin</h4>
-                                            <p class="testimonial-two__client-title">Customer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Testimonial Two Single-->
-                                <div class="testimonial-two__single">
-                                    <p class="testimonial-two__text">This is due to their excellent service, competitive
-                                        pricing and customer support. It’s throughly refresing to get such a personal
-                                        touch. Duis aute lorem ipsum is simply free text irure dolor in reprehen.</p>
-                                    <div class="testimonial-two__client-info">
-                                        <div class="testimonial-two__client-img">
-                                            <img src="assets/images/testimonial/testimonial-one-img-1.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-two__client-details">
-                                            <h4 class="testimonial-two__client-name">Jessica Brown</h4>
-                                            <p class="testimonial-two__client-title">Customer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Testimonial Two Single-->
-                                <div class="testimonial-two__single">
-                                    <p class="testimonial-two__text">This is due to their excellent service, competitive
-                                        pricing and customer support. It’s throughly refresing to get such a personal
-                                        touch. Duis aute lorem ipsum is simply free text irure dolor in reprehen.</p>
-                                    <div class="testimonial-two__client-info">
-                                        <div class="testimonial-two__client-img">
-                                            <img src="assets/images/testimonial/testimonial-one-img-3.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-two__client-details">
-                                            <h4 class="testimonial-two__client-name">sarah rose</h4>
-                                            <p class="testimonial-two__client-title">Customer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Testimonial Two Single-->
-                                <div class="testimonial-two__single">
-                                    <p class="testimonial-two__text">This is due to their excellent service, competitive
-                                        pricing and customer support. It’s throughly refresing to get such a personal
-                                        touch. Duis aute lorem ipsum is simply free text irure dolor in reprehen.</p>
-                                    <div class="testimonial-two__client-info">
-                                        <div class="testimonial-two__client-img">
-                                            <img src="assets/images/testimonial/testimonial-one-img-2.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-two__client-details">
-                                            <h4 class="testimonial-two__client-name">kevin martin</h4>
-                                            <p class="testimonial-two__client-title">Customer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Testimonial Two End-->
-
-        <!--Team One Start-->
-        <section class="team-one">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline">people behind it</span>
-                    <h2 class="section-title__title">meet the team</h2>
-                </div>
-                <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                        <!--Team One Single-->
-                        <div class="team-one__single">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-one-img-1.jpg" alt="">
-                                <div class="team-one__details">
-                                    <p class="team-one__title">Developer</p>
-                                    <h4 class="team-one__name">Sarah albert</h4>
-                                </div>
-                                <div class="team-one__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                        <!--Team One Single-->
-                        <div class="team-one__single">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-one-img-2.jpg" alt="">
-                                <div class="team-one__details">
-                                    <p class="team-one__title">Developer</p>
-                                    <h4 class="team-one__name">Sarah albert</h4>
-                                </div>
-                                <div class="team-one__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="600ms">
-                        <!--Team One Single-->
-                        <div class="team-one__single">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-one-img-3.jpg" alt="">
-                                <div class="team-one__details">
-                                    <p class="team-one__title">Developer</p>
-                                    <h4 class="team-one__name">Sarah albert</h4>
-                                </div>
-                                <div class="team-one__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="800ms">
-                        <!--Team One Single-->
-                        <div class="team-one__single">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-one-img-4.jpg" alt="">
-                                <div class="team-one__details">
-                                    <p class="team-one__title">Developer</p>
-                                    <h4 class="team-one__name">Sarah albert</h4>
-                                </div>
-                                <div class="team-one__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Team One End-->
-
-        <!--Best Agency Start-->
-        <section class="best-agency about-page-best-agency">
-            <div class="best-agency-shape" style="background-image: url(assets/images/shapes/best-agency-shape.png)">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="best-agency__left">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">best creative agency</span>
-                                <h2 class="section-title__title">Our Agency all soltutions</h2>
-                            </div>
-                            <ul class="list-unstyled best-agency__points">
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p>Reliable and Proven</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p>Best Team Members</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="best-agency__experience">
-                                <div class="best-agency__experience-icon">
-                                    <span class="icon-social-media"></span>
-                                </div>
-                                <div class="best-agency__experience-text-box">
-                                    <p class="best-agency__experience-text">We have 30+ years of experiences for give
-                                        you <br> better quality results.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="best-agency__right">
-                            <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
-                                <div class="accrodion active">
-                                    <div class="accrodion-title">
-                                        <h4>We Help to Create Visual Strategies</h4>
-                                    </div>
-                                    <div class="accrodion-content">
-                                        <div class="inner">
-                                            <p>There are many variations of passages the majority have suffered
-                                                alteration in some fo injected humour, or randomised words believable.
-                                            </p>
-                                        </div><!-- /.inner -->
-                                    </div>
-                                </div>
-                                <div class="accrodion">
-                                    <div class="accrodion-title">
-                                        <h4>Motion Graphics & Animations</h4>
-                                    </div>
-                                    <div class="accrodion-content">
-                                        <div class="inner">
-                                            <p>There are many variations of passages the majority have suffered
-                                                alteration in some fo injected humour, or randomised words believable.
-                                            </p>
-                                        </div><!-- /.inner -->
-                                    </div>
-                                </div>
-                                <div class="accrodion last-chiled">
-                                    <div class="accrodion-title">
-                                        <h4>We Help to Achieve Mutual Goals</h4>
-                                    </div>
-                                    <div class="accrodion-content">
-                                        <div class="inner">
-                                            <p>There are many variations of passages the majority have suffered
-                                                alteration in some fo injected humour, or randomised words believable.
-                                            </p>
-                                        </div><!-- /.inner -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Best Agency End-->
-
-        <!--Site Footer Start-->
-        <footer class="site-footer">
-            <div class="site-footer__top">
-                <div class="site-footer__top-shape"
-                    style="background-image: url(assets/images/shapes/site-footer-top-shape.png)"></div>
-                <div class="container">
-                    <div class="site-footer__top-inner">
-                        <div class="site-footer__top-left">
-                            <h3 class="site-footer__top-left-title">Your Perfect Business Partner Solution</h3>
-                            <a href="tel:926668880000" class="site-footer__top-left-phone">+ 92 666 888 0000</a>
-                        </div>
-                        <div class="site-footer__top-right">
-                            <div class="site-footer__top-right-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="site-footer__middle">
-                <div class="container">
-                    <div class="site-footer__middle-inner">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                                <div class="footer-widget__column footer-widget__contact">
-                                    <h3 class="footer-widget__title">Contact</h3>
-                                    <p class="footer-widget__contact-text">86 Road Broklyn Street, 600 <br> New York,
-                                        USA</p>
-                                    <h4 class="footer-widget__contact-email-phone">
-                                        <a href="mailto:needhelp@company.com"
-                                            class="footer-widget__contact-email">needhelp@company.com</a>
-                                        <a href="tel:926668880000" class="footer-widget__contact-phone">+ 92 666 888
-                                            0000</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                                <div class="footer-widget__column footer-widget__links clearfix">
-                                    <h3 class="footer-widget__title">Links</h3>
-                                    <ul class="footer-widget__links-list list-unstyled clearfix">
-                                        <li><a href="services.html">Our Services</a></li>
-                                        <li><a href="team.html">Meet Our Team</a></li>
-                                        <li><a href="project.html">Our Portfolio</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="blog.html">News</a></li>
-                                    </ul>
-                                    <ul
-                                        class="footer-widget__links-list footer-widget__links-list-two list-unstyled clearfix">
-                                        <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="about.html">Terms & Conditions</a></li>
-                                        <li><a href="about.html">Privacy Policy</a></li>
-                                        <li><a href="about.html">Help</a></li>
-                                        <li><a href="services.html">Services</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-5 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                                <div class="footer-widget__column footer-widget__newsletter">
-                                    <h3 class="footer-widget__title">Newsletter</h3>
-                                    <form class="footer-widget__newsletter-form">
-                                        <div class="footer-widget__newsletter-input-box">
-                                            <input type="email" placeholder="Email address" name="email">
-                                            <button type="submit" class="footer-widget__newsletter-btn"><i
-                                                    class="far fa-paper-plane"></i></button>
-                                        </div>
-                                    </form>
-                                    <div class="footer-widget__newsletter-bottom">
-                                        <div class="footer-widget__newsletter-bottom-icon">
-                                            <i class="fa fa-check"></i>
-                                        </div>
-                                        <div class="footer-widget__newsletter-bottom-text">
-                                            <p>I agree to all your terms and policies</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="site-footer__bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="site-footer__bottom-inner">
-                                <p class="site-footer__bottom-text">© Copyrights, <span class="dynamic-year"></span> <a
-                                        href="#">Layerdrops.com</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--Site Footer End-->
-
-
-    </div><!-- /.page-wrapper -->
-
-
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-1.png" width="155"
-                        alt="" /></a>
-            </div>
-            <!-- /.logo-box -->
-            <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@mibooz.com</a>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
-
-
         </div>
-        <!-- /.mobile-nav__content -->
-    </div>
-    <!-- /.mobile-nav__wrapper -->
+    </footer>
 
-    <div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
-        <!-- /.search-popup__content -->
-    </div>
-    <!-- /.search-popup -->
-
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
-
-
-    <script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
-    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/jarallax/jarallax.min.js"></script>
-    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
-    <script src="assets/vendors/odometer/odometer.min.js"></script>
-    <script src="assets/vendors/swiper/swiper.min.js"></script>
-    <script src="assets/vendors/tiny-slider/tiny-slider.min.js"></script>
-    <script src="assets/vendors/wnumb/wNumb.min.js"></script>
-    <script src="assets/vendors/wow/wow.js"></script>
-    <script src="assets/vendors/isotope/isotope.js"></script>
-    <script src="assets/vendors/countdown/countdown.min.js"></script>
-    <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendors/bxslider/jquery.bxslider.min.js"></script>
-    <script src="assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-    <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="assets/vendors/jquery-tilt/tilt.jquery.min.js"></script>
-    <!-- template js -->
-    <script src="assets/js/mibooz.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
-
 </html>
