@@ -1,769 +1,762 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Topia Consult - Conversational Commerce | Cloud Security |CRM |</title>
-    <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Topia Consult | Leading Technology Solutions Provider In Africa" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topia Consult - Powering Africa's Digital Transformation</title>
+    <meta name="description" content="Leading technology consulting firm driving Africa's digital transformation through innovative solutions in cloud, ESG, revenue assurance, and commerce.">
 
-    <!-- fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Federo&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="assets/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css" />
-    <link rel="stylesheet" href="assets/vendors/mibooz-icons/style.css">
-    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/the-sayinistic-font/stylesheet.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/vendors/bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" href="assets/vendors/bootstrap-select/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/mibooz.css" />
-    <link rel="stylesheet" href="assets/css/mibooz-responsive.css" />
+    <style>
+        :root {
+            --topia-gold: #E7B044;
+            --topia-navy: #0A1628;
+            --topia-blue: #2D5BFF;
+            --topia-charcoal: #1A1A1A;
+            --topia-light: #F5F7FA;
+            --topia-green: #10B981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--topia-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--topia-navy);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo-accent {
+            color: var(--topia-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--topia-charcoal);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 176, 68, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 176, 68, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2844 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23E7B044" fill-opacity="0.1"/></svg>');
+            background-size: 60px 60px;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(231, 176, 68, 0.1);
+            color: var(--topia-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(231, 176, 68, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #fff, var(--topia-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(231, 176, 68, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            margin-top: 5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--topia-gold);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+            background: var(--topia-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-badge {
+            color: var(--topia-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--topia-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .service-link {
+            color: var(--topia-gold);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Africa Impact Section */
+        .africa-impact {
+            padding: 8rem 0;
+            background: var(--topia-navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .africa-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .africa-content h2 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .africa-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .africa-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .africa-features li {
+            color: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .africa-features i {
+            color: var(--topia-gold);
+            font-size: 1.2rem;
+        }
+
+        .africa-visual {
+            position: relative;
+        }
+
+        .visual-box {
+            background: linear-gradient(135deg, rgba(231, 176, 68, 0.1), rgba(45, 91, 255, 0.1));
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--topia-light) 0%, white 100%);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 3.5rem;
+            color: var(--topia-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-container p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--topia-navy);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--topia-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            color: white;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--topia-navy);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--topia-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .africa-container { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-stats { flex-direction: column; gap: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-
 <body>
-    <div class="preloader">
-        <img class="preloader__image" width="60" src="assets/images/loader.png" alt="" />
-    </div>
-    <!-- /.preloader -->
-    <div class="page-wrapper">
-        <header class="main-header main-header-two clearfix">
-            <nav class="main-menu main-menu-two clearfix">
-                <div class="main-menu-wrapper">
-                    <div class="main-menu-wrapper__logo">
-                        <a href="index.html"><img src="assets/images/resources/nn1.png" alt=""></a>
-                    </div>
-                    <div class="main-menu-wrapper__main-menu">
-                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                        <ul class="main-menu__list">
-                            <li class="dropdown  ">
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">Our Expertise</a>
-                                <ul>
-                                    <li><a href="#">Chat Bots</a></li>
-                                    <li><a href="#">CRM Solutions</a></li>
-                                    <li><a href="#">Cloud Solutions</a></li>
-                                    <li><a href="#">Consulting</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">Solutions</a>
-                                <ul>
-                                    <li><a href="#">WhatsApp Bots</a></li>
-                                    <li><a href="#">AWS Cloud Setup</a></li>
-                                    <li><a href="#">Google Cloud Setup</a></li>
-                                    <li><a href="#">Hubspot CRM Setup</a></li>
-                                    <li><a href="#">Technology Consulting</a></li>
-                                    <li><a href="#">IT Audit</a></li>
-                                    <li><a href="#">Product Development</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">Projects</a>
-                                <ul>
-                                    <li><a href="#">AWS</a></li>
-                                    <li><a href="#">WhatsApp</a></li>
-                                    <li><a href="#">Google Cloud/a></li>
-                                    <li><a href="#">Consulting</a></li>
-                                    <li><a href="#">CRM</a></li>
-                                    <li><a href="#">Google Cloud</a></li>
-                                    <li><a href="#">Audit</a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">Resources</a>
-                                
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="main-menu-wrapper__right">
-                        <div class="main-menu-wrapper__call">
-                            <div class="main-menu-wrapper__call-icon">
-                                <img src="assets/images/icon/phone-icon-2.png" alt="">
-                            </div>
-                            <div class="main-menu-wrapper__call-number">
-                                <p>Call Anytime</p>
-                                <h5><a href="tel: +233247656862"></a></h5>
-                            </div>
-                        </div>
-                        <div class="main-menu-wrapper__search-box">
-                            <a href="#" class="main-menu-wrapper__search search-toggler icon-magnifying-glass"></a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <div class="stricky-header stricked-menu main-menu main-menu-two">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
-
-        <!--Main Slider Start-->
-        <section class="main-slider-two">
-            <div class="main-slider-two__wrapper">
-                <div class="image-layer"
-                    style="background-image: url(assets/images/backgrounds/main-slider-two-bg.png);"></div>
-                <div class="main-slider-two-box-1"></div>
-                <div class="main-slider-two-box-2"></div>
-                <div class="main-slider-two-box-3"></div>
-                <div class="main-slider-two-box-4"></div>
-                <div class="main-slider-two-box-5"></div>
-                <div class="main-slider-two-box-6"></div>
-                <div class="main-slider-two-box-7"></div>
-                <div class="main-slider-two-box-8"></div>
-                <div class="main-slider-two-box-9"></div>
-                <div class="main-slider-two-box-10"></div>
-                <div class="main-slider__social">
-                    <a href="#">Linkedin</a>
-                 <!--    <a href="#">twitter</a>
-                    <a href="#">instagram</a> -->
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="main-slider-two__content">
-                                <h2 data-wow-duration="2000ms" class="wow fadeInUp">Building <br> Revenue Oriented <br>
-                                    tech <br>Solutions</h2>
-                                <div class="main-slider-two__btn-video wow fadeInUp" data-wow-duration="2000ms">
-                                    <div class="main-slider-two__btn">
-                                        <a href="about.html" class="thm-btn">Discover More</a>
-                                    </div>
-                                   
-                                </div>
-                                <div class="main-slider-two__img">
-                                    <img src="assets/images/resources/w7.png" alt=""
-                                        data-wow-duration="2000ms" class="wow fadeInRight" />
-                                    <div class="main-slider-two__name-box">
-                                        <h3 class="main-slider-two__name"></h3>
-                                    </div>
-                                </div>
-                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Main Slider End-->
-
-        <!--Feature One Start-->
-        <section class="feature-one">
-            <div class="feature-one__container">
-                <ul class="list-unstyled feature-one__list clearfix">
-                    <!--Feature One Single-->
-                    <li class="feature-one__single wow fadeInUp" data-wow-delay="200ms">
-                        <div class="feature-one__content">
-                            <div class="feature-one__icon">
-                                <span class="icon-checking"></span>
-                            </div>
-                            <h4 class="feature-one__title"><a href="contact.html">In-Depth Scoping</a></h4>
-                            <p class="feature-one__text">We’re here to add value to your business, which means we’re committed to investing in the latest technology and providing an exceptional customer experience.</p>
-                        </div>
-                    </li>
-                    <!--Feature One Single-->
-                    <li class="feature-one__single wow fadeInUp" data-wow-delay="400ms">
-                        <div class="feature-one__content">
-                            <div class="feature-one__icon">
-                                <span class="icon-graphic-designer"></span>
-                            </div>
-                            <h4 class="feature-one__title"><a href="team.html">Hands On Expertise</a></h4>
-                            <p class="feature-one__text">Our team will spend time to understand your needs and provide a perfect fit and scalable solution infrastructure for your business.</p>
-                        </div>
-                    </li>
-                    <!--Feature One Single-->
-                    <li class="feature-one__single wow fadeInUp" data-wow-delay="600ms">
-                        <div class="feature-one__content">
-                            <div class="feature-one__icon">
-                                <span class="icon-social-media"></span>
-                            </div>
-                            <h4 class="feature-one__title"><a href="about.html">Customer Centric</a></h4>
-                            <p class="feature-one__text">We turn customers into fans. We provide the perfect solution fit for your business needs and take into consideration the needs of your customers.</p>
-                        </div>
-                    </li>
-                    <!--Feature One Single-->
-                    <li class="feature-one__single wow fadeInUp" data-wow-delay="800ms">
-                        <div class="feature-one__content">
-                            <div class="feature-one__icon">
-                                <span class="icon-recommend"></span>
-                            </div>
-                            <h4 class="feature-one__title"><a href="#">Value Addition</a></h4>
-                            <p class="feature-one__text">There is no magic in technology. It should add value to your business and that's exactly what we provide as your service provider.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!--Feature One End-->
-
-        <!--Welcome Two Start-->
-        <section class="welcome-two">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline">We Are TOPIA CONSULT</span>
-                    <h2 class="section-title__title">12+ years Innovating Technology<br> & In Africa For The World</h2>
-                </div>
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="welcome-two__left wow slideInLeft" data-wow-delay="100ms"
-                            data-wow-duration="2500ms">
-                            <div class="welcome-two__img-box">
-                                <div class="welcome-two__img">
-                                    <img src="assets/images/resources/w2.png" alt="">
-                                </div>
-                                <div class="welcome-two__small-img">
-                                    <img src="assets/images/resources/w3.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="welcome-two__right">
-                            <div class="welcome-two__big-text">Topia</div>
-                            <p class="welcome-two__right-text">When you want to reinvent your business, we're here to help. With over a decade of experience in user centered system design, we can help your business evolve into its next phase with seamless systems that scale.</p>
-                            <ul class="welcome-two__points list-unstyled">
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-tick"></span>
-                                    </div>
-                                    <div class="text">
-                                        <h4>User Centric Process Flow</h4>
-                                        <p>We incorporate your current process flow into technology for efficiency and usability.</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-tick"></span>
-                                    </div>
-                                    <div class="text">
-                                        <h4>Solutions That Grow With You</h4>
-                                        <p>As your business grows, the technology you deploy must grow with you</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-tick"></span>
-                                    </div>
-                                    <div class="text">
-                                        <h4>Profit Oriented Value Creation</h4>
-                                        <p>The more you do, the more you grow. We work with you to create a technology infrastructure that is fit for your organization, allowing you to scale and grow your business.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <a href="#" class="thm-btn welcome-two__btn">Discover More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Welcome Two End-->
-
-        <!--Company Numbers Start-->
-        <section class="company-numbers">
-            <div class="company-numbers-bg-box">
-                <div class="company-numbers-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-                    style="background-image: url(assets/images/backgrounds/w1.png)">
-
-                </div>
-            </div>
-            <div class="container">
-                <div class="company-numbers__inner">
-                    <div class="row">
-                        <div class="col-xl-7 col-lg-7">
-                            <div class="company-numbers__left">
-                                <div class="company-numbers__video-box">
-                                    
-                                </div>
-                                <div class="company-numbers__content">
-                                    <p class="company-numbers__tagline">12 YEARS OF INNOVATION AT PLAY</p>
-                                    <h2 class="company-numbers__title">VALUE TO EMPOWER BUSINESS GROWTH; NOT JUST
-                                        <span>SOFTWARE</span></h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-5">
-                            <div class="company-numbers__right">
-                                <ul class="list-unstyled company-numbers__counter">
-                                    <li>
-                                        <div class="company-numbers__counter-content">
-                                            <h3 class="odometer" data-count="32">00</h3>
-                                            <p class="company-numbers__counter-text">Projects  Completed</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="company-numbers__counter-content">
-                                            <h3 class="odometer" data-count="75">00</h3>
-                                            <p class="company-numbers__counter-text">Solutions Deployed & Scaled</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Company Numbers End-->
-
-        <!--Services Two Start-->
-        <section class="services-two">
-            <div class="services-two-shape" style="background-image: url(assets/images/shapes/services-two-shape.png)">
-            </div>
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline"></span>
-                    <h2 class="section-title__title">OUR EXPERTISE</h2>
-                </div>
-                <ul class="list-unstyled clearfix services-two__list">
-                    <!--Services Two Single-->
-                    <li class="services-two__single wow fadeInUp" data-wow-delay="200ms">
-                        <div class="services-two__icon">
-                            <span class="icon-online-shopping"></span>
-                        </div>
-                        <h3 class="services-two__title"><a href="#">Chat Bots<br> Automaticn</a>
-                        </h3>
-                        <p class="services-two__text">Topia Consult provides auditing, management and backup solutions for your data and IT assets. With CISA certified accreditation backed by real-world expertise, we provide 360° visibility of your IT infrastructure.</p>
-                    </li>
-                    <!--Services Two Single-->
-                    <li class="services-two__single wow fadeInUp" data-wow-delay="400ms">
-                        <div class="services-two__icon">
-                            <span class="icon-growth"></span>
-                        </div>
-                        <h3 class="services-two__title"><a href="#">Cloud <br> Solutions</a></h3>
-                        <p class="services-two__text">At Topia Consult, we help switch your business to the cloud. We have the expertise, experience and knowledge required to make this a seamless transition.</p>
-                    </li>
-                    <!--Services Two Single-->
-                    <li class="services-two__single wow fadeInUp" data-wow-delay="600ms">
-                        <div class="services-two__icon">
-                            <span class="icon-webpage"></span>
-                        </div>
-                        <h3 class="services-two__title"><a href="#">CRM <br> Solutions</a></h3>
-                        <p class="services-two__text">We use best-in-class customer data, technology and analysis to guide you in the most seamless way possible to build your customer base and engage with them on every point of contact.</p>
-                    </li>
-                    <!--Services Two Single-->
-                    <li class="services-two__single wow fadeInUp" data-wow-delay="800ms">
-                        <div class="services-two__icon">
-                            <span class="icon-front-end"></span>
-                        </div>
-                        <h3 class="services-two__title"><a href="#">Dev <br> Ops</a>
-                        </h3>
-                        <p class="services-two__text">Put your business goals first and bring it to life! We've built a product development stack that empowers you to build great products quickly, without the worry of platform selection or differences in technology.</p>
-                    </li>
-                </ul>
-                <div class="row">
-                    <div class="col-lg-12 wow fadeInUp" data-wow-delay="900ms">
-                        <div class="services-two__btn-box">
-                            <a href="#" class="services-two__btn">Tell Me More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Services Two End-->
-
-        <!--Two Boxes Start-->
-       
-        <!--Two Boxes End-->
-
-        <!--Project Two Start-->
-        
-        <!--Project Two End-->
-
-        <!--How It Works Start-->
-        <section class="how-it-works">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline"></span>
-                    <h2 class="section-title__title">How We Work</h2>
-                </div>
-                <div class="how-it-works__top">
-                    <ul class="list-unstyled how-it-works__process clearfix">
-                        <li class="how-it-works__process-single wow fadeInUp" data-wow-delay="200ms">
-                            <div class="how-it-works__process-box">
-                                <div class="how-it-works__img"
-                                    style="background-image: url(assets/images/resources/ic1.png)">
-                                </div>
-                                <div class="how-it-works__img-overly"></div>
-                                <div class="how-it-works__icon">
-                                    <span class="icon-innovation"></span>
-                                </div>
-                                <div class="how-it-works__count"></div>
-                            </div>
-                            <h3 class="how-it-works__title">Concept</h3>
-                        </li>
-                        <li class="how-it-works__process-single wow fadeInUp" data-wow-delay="400ms">
-                            <div class="how-it-works__process-box">
-                                <div class="how-it-works__img"
-                                    style="background-image: url(assets/images/resources/ic1.png)">
-                                </div>
-                                <div class="how-it-works__img-overly"></div>
-                                <div class="how-it-works__icon">
-                                    <span class="icon-webpage"></span>
-                                </div>
-                                <div class="how-it-works__count"></div>
-                            </div>
-                            <h3 class="how-it-works__title">Prototype</h3>
-                        </li>
-                        <li class="how-it-works__process-single wow fadeInUp" data-wow-delay="600ms">
-                            <div class="how-it-works__process-box">
-                                <div class="how-it-works__img"
-                                    style="background-image: url(assets/images/resources/ic1.png)">
-                                </div>
-                                <div class="how-it-works__img-overly"></div>
-                                <div class="how-it-works__icon">
-                                    <span class="icon-front-end"></span>
-                                </div>
-                                <div class="how-it-works__count"></div>
-                            </div>
-                            <h3 class="how-it-works__title">development</h3>
-                        </li>
-                        <li class="how-it-works__process-single wow fadeInUp" data-wow-delay="800ms">
-                            <div class="how-it-works__process-box">
-                                <div class="how-it-works__img"
-                                    style="background-image: url(assets/images/resources/ic1.png)">
-                                </div>
-                                <div class="how-it-works__img-overly"></div>
-                                <div class="how-it-works__icon">
-                                    <span class="icon-recommend"></span>
-                                </div>
-                                <div class="how-it-works__count"></div>
-                            </div>
-                            <h3 class="how-it-works__title">launch</h3>
-                        </li>
-                    </ul>
-                </div>
-                <div class="how-it-works__bottom wow fadeInUp" data-wow-delay="900ms">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="how-it-works__bottom-inner">
-                                <p class="how-it-works__bottom-text">There are various aspects of technology projects that can be daunting <br> we combine a mixture of Agile, Kanban & Waterfall approaches with a 
-                                    <br> bespoke design to suite your specific business needs
-                                </p>
-                                <a href="#" class="thm-btn how-it-works__btn">Got 15 minutes? Talk To Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--How It Works End-->
-
-        <!--Testimonial Two Start-->
-       
-        <!--Testimonial Two End-->
-
-        <!--Team One Start-->
-        
-        <!--Team One End-->
-
-        <!--Brand Two Start-->
-        <section class="brand-one">
-            <div class="container">
-                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
-                    "0": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 2
-                    },
-                    "375": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 2
-                    },
-                    "575": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 3
-                    },
-                    "767": {
-                        "spaceBetween": 50,
-                        "slidesPerView": 4
-                    },
-                    "991": {
-                        "spaceBetween": 50,
-                        "slidesPerView": 5
-                    },
-                    "1199": {
-                        "spaceBetween": 100,
-                        "slidesPerView": 5
-                    }
-                }}'>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b1.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b2.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b3.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b4.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b5.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b1.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b2.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b3.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b4.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/b5.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Brand Two End-->
-
-        <!--Blog Two Start-->
-        
-        <!--Blog Two End-->
-
-        <!--CTA One Start-->
-        <section class="cta-one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="cta-one__inner wow fadeInUp" data-wow-delay="300ms">
-                            <div class="cta-one__box-1"></div>
-                            <div class="cta-one__box-2"></div>
-                            <div class="cta-one__left">
-                                <div class="cta-one__icon">
-                                    <span class="icon-consulting"></span>
-                                </div>
-                                <div class="cta-one__title-box">
-                                    <h2 class="cta-one__title">Try any of our solutions for FREE; </h2>
-                                </div>
-                            </div>
-                            <div class="cta-one__right">
-                                <a href="#" class="thm-btn cta-one__btn">Interested</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--CTA One End-->
-
-        <!--Site Footer Start-->
-        <footer class="site-footer">
-            <div class="site-footer__top">
-                <div class="site-footer__top-shape"
-                    style="background-image: url(assets/images/shapes/site-footer-top-shape.png)"></div>
-                <div class="container">
-                    <div class="site-footer__top-inner">
-                        <div class="site-footer__top-left">
-                            <h3 class="site-footer__top-left-title">Technology Fueled Growth</h3>
-                            <a href="tel:" class="site-footer__top-left-phone"> </a>
-                        </div>
-                        <div class="site-footer__top-right">
-                            <div class="site-footer__top-right-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="site-footer__middle">
-                <div class="container">
-                    <div class="site-footer__middle-inner">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                                <div class="footer-widget__column footer-widget__contact">
-                                    <h3 class="footer-widget__title">Contact</h3>
-                                    <p class="footer-widget__contact-text">Block A, Accra Digital Center <br> Ring Road West - Accra
-                                        Ghana</p>
-                                    <h4 class="footer-widget__contact-email-phone">
-                                        <a href="mailto:hello@topiaconsult.com"
-                                            class="footer-widget__contact-email">hello@topiaconsult.com</a>
-                                        <a href="tel:" class="footer-widget__contact-phone">+ </a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                                <div class="footer-widget__column footer-widget__links clearfix">
-                                    <h3 class="footer-widget__title">Links</h3>
-                                    <ul class="footer-widget__links-list list-unstyled clearfix">
-                                        <li><a href="#">Our Services</a></li>
-                                        <li><a href="#">Meet Our Team</a></li>
-                                        <li><a href="#">Our Portfolio</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                        <li><a href="#">News</a></li>
-                                    </ul>
-                                    <ul
-                                        class="footer-widget__links-list footer-widget__links-list-two list-unstyled clearfix">
-                                        <li><a href="#">FAQs</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Help</a></li>
-                                        <li><a href="#">Services</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-5 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                                <div class="footer-widget__column footer-widget__newsletter">
-                                    <h3 class="footer-widget__title">Newsletter</h3>
-                                    <form class="footer-widget__newsletter-form">
-                                        <div class="footer-widget__newsletter-input-box">
-                                            <input type="email" placeholder="Email address" name="email">
-                                            <button type="submit" class="footer-widget__newsletter-btn"><i
-                                                    class="far fa-paper-plane"></i></button>
-                                        </div>
-                                    </form>
-                                    <div class="footer-widget__newsletter-bottom">
-                                        <div class="footer-widget__newsletter-bottom-icon">
-                                            <i class="fa fa-check"></i>
-                                        </div>
-                                        <div class="footer-widget__newsletter-bottom-text">
-                                            <p>I agree to all your terms and policies</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="site-footer__bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="site-footer__bottom-inner">
-                                <p class="site-footer__bottom-text">© Copyright, <span class="dynamic-year"></span> <a
-                                        href="#">Topia Consult</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--Site Footer End-->
-
-
-    </div><!-- /.page-wrapper -->
-
-
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-
-            <div class="logo-box">
-                <!-- <a href="index.html" aria-label="logo image"><img src="assets/images/resources/nn1.png" width="155"
-                        alt="" /></a> -->
-            </div>
-            <!-- /.logo-box -->
-            <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:hello@topiaconsult.com">hello@topiaconsult.com</a>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <a href="tel:"></a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
-
-
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Topia<span class="logo-accent">.</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-btn">Get Started</a></li>
+            </ul>
         </div>
-        <!-- /.mobile-nav__content -->
-    </div>
-    <!-- /.mobile-nav__wrapper -->
+    </nav>
 
-    <div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up">
+                <span class="hero-badge">🚀 Technology Consulting for Africa</span>
+                <h1>Powering Africa's <span class="hero-gradient">Digital Transformation</span></h1>
+                <p>Building the technology framework for Africa's digitalization agenda through world-class consulting in digital solutions, ESG, revenue assurance, and commerce platforms.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">Explore Solutions</a>
+                    <a href="#contact" class="btn-secondary">Book Consultation</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Industries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">OUR SOLUTIONS</div>
+            <h2 class="section-title">Technology Solutions for Every Challenge</h2>
+            <p class="section-description">Comprehensive consulting services designed to accelerate your digital transformation journey</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Digital Solutions</h3>
+                <p>Cloud architecture, software development, API integration, and digital infrastructure for scalable business growth.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>ESG Consulting</h3>
+                <p>Environmental, Social, and Governance frameworks to ensure sustainable and compliant technology practices.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Revenue Assurance</h3>
+                <p>Financial systems optimization, fraud detection, and revenue protection through intelligent analytics.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>Commerce Solutions</h3>
+                <p>E-commerce platforms, payment integration, conversational commerce, and digital marketplace development.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Africa Impact Section -->
+    <section class="africa-impact" id="impact">
+        <div class="africa-container">
+            <div class="africa-content" data-aos="fade-right">
+                <h2>Building Africa's Digital Infrastructure</h2>
+                <p>We're committed to creating a robust technology framework that powers Africa's digital economy and connects the continent to global opportunities.</p>
+                <ul class="africa-features">
+                    <li><i class="fas fa-check-circle"></i> Pan-African technology expertise</li>
+                    <li><i class="fas fa-check-circle"></i> Localized solutions for African markets</li>
+                    <li><i class="fas fa-check-circle"></i> Partnership with global tech leaders</li>
+                    <li><i class="fas fa-check-circle"></i> Commitment to sustainable growth</li>
+                </ul>
+                <a href="#contact" class="btn-primary" style="display: inline-block; margin-top: 2rem;">Partner With Us</a>
+            </div>
+            <div class="africa-visual" data-aos="fade-left">
+                <div class="visual-box">
+                    <h3 style="color: white; font-size: 2rem; margin-bottom: 2rem;">Our Impact Across Africa</h3>
+                    <div style="color: rgba(255,255,255,0.8); line-height: 2;">
+                        <p><strong style="color: var(--topia-gold);">🌍 Pan-African Reach:</strong> Serving clients across 20+ African countries</p>
+                        <p><strong style="color: var(--topia-gold);">💡 Innovation First:</strong> Implementing cutting-edge technologies adapted for African markets</p>
+                        <p><strong style="color: var(--topia-gold);">🤝 Local Expertise:</strong> Deep understanding of African business environments</p>
+                        <p><strong style="color: var(--topia-gold);">📈 Measurable Results:</strong> Proven track record of successful digital transformations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div data-aos="fade-up">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how we can help accelerate your digital transformation journey</p>
+            </div>
+            <form class="contact-form" data-aos="fade-up" data-aos-delay="200">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Interest</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="digital">Digital Solutions</option>
+                        <option value="esg">ESG Consulting</option>
+                        <option value="revenue">Revenue Assurance</option>
+                        <option value="commerce">Commerce Solutions</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
-        <!-- /.search-popup__content -->
-    </div>
-    <!-- /.search-popup -->
+    </section>
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Topia<span style="color: var(--topia-gold);">.</span></div>
+                    <p class="footer-description">Empowering Africa's digital future through innovative technology consulting and solutions.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Digital Solutions</a></li>
+                        <li><a href="#">ESG Consulting</a></li>
+                        <li><a href="#">Revenue Assurance</a></li>
+                        <li><a href="#">Commerce Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">hello@topiaconsult.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Topia Consult. All rights reserved. Powering Africa's Digital Transformation.</p>
+            </div>
+        </div>
+    </footer>
 
-
-    <script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
-    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/jarallax/jarallax.min.js"></script>
-    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
-    <script src="assets/vendors/odometer/odometer.min.js"></script>
-    <script src="assets/vendors/swiper/swiper.min.js"></script>
-    <script src="assets/vendors/tiny-slider/tiny-slider.min.js"></script>
-    <script src="assets/vendors/wnumb/wNumb.min.js"></script>
-    <script src="assets/vendors/wow/wow.js"></script>
-    <script src="assets/vendors/isotope/isotope.js"></script>
-    <script src="assets/vendors/countdown/countdown.min.js"></script>
-    <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendors/bxslider/jquery.bxslider.min.js"></script>
-    <script src="assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-    <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="assets/vendors/jquery-tilt/tilt.jquery.min.js"></script>
-    <!-- template js -->
-    <script src="assets/js/mibooz.js"></script>
-    <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/47839178.js"></script>
-<!-- End of HubSpot Embed Code -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
-
 </html>
