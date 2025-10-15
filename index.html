@@ -29,12 +29,12 @@
 
     <style>
         :root {
-            --topia-gold: #E7B044;
-            --topia-navy: #0A1628;
-            --topia-blue: #2D5BFF;
-            --topia-charcoal: #1A1A1A;
+            --topia-orange: #F7941D;
+            --topia-navy: #1C3A5C;
+            --topia-charcoal: #3D3D3D;
+            --topia-light-blue: #4A90E2;
             --topia-light: #F5F7FA;
-            --topia-green: #10B981;
+            --topia-white: #FFFFFF;
         }
 
         * {
@@ -101,11 +101,11 @@
         }
 
         .nav-links a:hover {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
         }
 
         .cta-btn {
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
@@ -123,7 +123,12 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--topia-navy) 0%, #1a2844 100%);
+            background-image:
+                linear-gradient(135deg, rgba(28, 58, 92, 0.95) 0%, rgba(28, 58, 92, 0.85) 50%, rgba(247, 148, 29, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
             display: flex;
             align-items: center;
@@ -138,8 +143,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23E7B044" fill-opacity="0.1"/></svg>');
-            background-size: 60px 60px;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1.5" fill="rgba(247,148,29,0.15)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.4;
         }
 
         .hero-container {
@@ -156,8 +162,8 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(231, 176, 68, 0.1);
-            color: var(--topia-gold);
+            background: rgba(247, 148, 29, 0.1);
+            color: var(--topia-orange);
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
             font-size: 0.9rem;
@@ -174,7 +180,7 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #fff, var(--topia-gold));
+            background: linear-gradient(135deg, #fff, var(--topia-orange));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -194,7 +200,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             color: white;
             padding: 1.2rem 3rem;
             border-radius: 50px;
@@ -241,7 +247,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             font-family: 'Poppins', sans-serif;
         }
 
@@ -265,7 +271,7 @@
         }
 
         .section-badge {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -332,7 +338,7 @@
         .service-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -355,7 +361,7 @@
         }
 
         .service-link {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -370,7 +376,12 @@
         /* Africa Impact Section */
         .africa-impact {
             padding: 8rem 0;
-            background: var(--topia-navy);
+            background-image:
+                linear-gradient(135deg, rgba(28, 58, 92, 0.95) 0%, rgba(28, 58, 92, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1484291150605-0860ed671f04?w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
             overflow: hidden;
         }
@@ -412,7 +423,7 @@
         }
 
         .africa-features i {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             font-size: 1.2rem;
         }
 
@@ -421,11 +432,12 @@
         }
 
         .visual-box {
-            background: linear-gradient(135deg, rgba(231, 176, 68, 0.1), rgba(45, 91, 255, 0.1));
+            background: linear-gradient(135deg, rgba(247, 148, 29, 0.15), rgba(74, 144, 226, 0.15));
             border-radius: 20px;
             padding: 3rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(247, 148, 29, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         /* Contact Section */
@@ -571,7 +583,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
         }
 
         .footer-bottom {
@@ -597,7 +609,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/images/resources/logo-1.png" alt="Topia Consult">
+                <img src="assets/images/resources/topia-main-logo.png" alt="Topia Consult">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -647,7 +659,7 @@
         </div>
         <div class="services-grid">
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(45, 91, 255, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop');">
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(28, 58, 92, 0.8), rgba(247, 148, 29, 0.6)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop');">
                 </div>
                 <div class="service-content">
                     <div class="service-icon">
@@ -659,7 +671,7 @@
                 </div>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&auto=format&fit=crop');">
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(28, 58, 92, 0.7), rgba(74, 144, 226, 0.7)), url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&auto=format&fit=crop');">
                 </div>
                 <div class="service-content">
                     <div class="service-icon">
@@ -671,7 +683,7 @@
                 </div>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(231, 176, 68, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop');">
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(28, 58, 92, 0.8), rgba(247, 148, 29, 0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop');">
                 </div>
                 <div class="service-content">
                     <div class="service-icon">
@@ -683,7 +695,7 @@
                 </div>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(45, 91, 255, 0.8), rgba(10, 22, 40, 0.8)), url('https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&auto=format&fit=crop');">
+                <div class="service-image" style="background-image: linear-gradient(135deg, rgba(28, 58, 92, 0.75), rgba(247, 148, 29, 0.65)), url('https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&auto=format&fit=crop');">
                 </div>
                 <div class="service-content">
                     <div class="service-icon">
@@ -767,7 +779,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-logo">
-                        <img src="assets/images/resources/logo-2.png" alt="Topia Consult">
+                        <img src="assets/images/resources/topia-main-logo.png" alt="Topia Consult">
                     </div>
                     <p class="footer-description">Empowering Africa's digital future through innovative technology consulting and solutions.</p>
                 </div>

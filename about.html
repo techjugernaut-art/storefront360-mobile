@@ -29,12 +29,12 @@
 
     <style>
         :root {
-            --topia-gold: #E7B044;
-            --topia-navy: #0A1628;
-            --topia-blue: #2D5BFF;
-            --topia-charcoal: #1A1A1A;
+            --topia-orange: #F7941D;
+            --topia-navy: #1C3A5C;
+            --topia-charcoal: #3D3D3D;
+            --topia-light-blue: #4A90E2;
             --topia-light: #F5F7FA;
-            --topia-green: #10B981;
+            --topia-white: #FFFFFF;
         }
 
         * {
@@ -102,23 +102,23 @@
         }
 
         .nav-links a:hover {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
         }
 
         .cta-btn {
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(231, 176, 68, 0.3);
+            box-shadow: 0 4px 15px rgba(247, 148, 29, 0.3);
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 176, 68, 0.4);
+            box-shadow: 0 6px 20px rgba(247, 148, 29, 0.4);
         }
 
         /* Hero Section */
@@ -139,7 +139,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23E7B044" fill-opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23F7941D" fill-opacity="0.1"/></svg>');
             background-size: 60px 60px;
         }
 
@@ -159,14 +159,14 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(231, 176, 68, 0.1);
-            color: var(--topia-gold);
+            background: rgba(247, 148, 29, 0.1);
+            color: var(--topia-orange);
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 2rem;
-            border: 1px solid rgba(231, 176, 68, 0.2);
+            border: 1px solid rgba(247, 148, 29, 0.2);
         }
 
         .hero h1 {
@@ -177,7 +177,7 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #fff, var(--topia-gold));
+            background: linear-gradient(135deg, #fff, var(--topia-orange));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -226,13 +226,13 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(135deg, var(--topia-gold), var(--topia-blue));
+            background: linear-gradient(135deg, var(--topia-orange), var(--topia-light-blue));
         }
 
         .mission-icon, .vision-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -267,7 +267,7 @@
         }
 
         .section-badge {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -312,7 +312,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--topia-gold), var(--topia-blue));
+            background: linear-gradient(90deg, var(--topia-orange), var(--topia-light-blue));
             transform: scaleX(0);
             transition: transform 0.4s;
         }
@@ -329,7 +329,7 @@
         .value-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -374,7 +374,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, var(--topia-gold), var(--topia-blue));
+            background: linear-gradient(180deg, var(--topia-orange), var(--topia-light-blue));
             transform: translateX(-50%);
         }
 
@@ -412,7 +412,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             color: white;
             width: 100px;
             height: 100px;
@@ -422,7 +422,7 @@
             justify-content: center;
             font-size: 1.2rem;
             font-weight: 700;
-            box-shadow: 0 4px 20px rgba(231, 176, 68, 0.4);
+            box-shadow: 0 4px 20px rgba(247, 148, 29, 0.4);
         }
 
         .timeline-content h3 {
@@ -467,7 +467,7 @@
         .team-image {
             width: 100%;
             height: 350px;
-            background: linear-gradient(135deg, var(--topia-navy), var(--topia-blue));
+            background: linear-gradient(135deg, var(--topia-navy), var(--topia-light-blue));
             position: relative;
             overflow: hidden;
         }
@@ -497,7 +497,7 @@
         }
 
         .team-info p {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             font-weight: 600;
             margin-bottom: 1rem;
         }
@@ -521,7 +521,7 @@
         }
 
         .team-social a:hover {
-            background: var(--topia-gold);
+            background: var(--topia-orange);
             color: white;
             transform: translateY(-3px);
         }
@@ -581,7 +581,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             margin-bottom: 0.5rem;
         }
 
@@ -605,7 +605,7 @@
         }
 
         .africa-features i {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
             font-size: 1.2rem;
         }
 
@@ -634,7 +634,7 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, var(--topia-gold), var(--topia-blue));
+            background: linear-gradient(90deg, var(--topia-orange), var(--topia-light-blue));
         }
 
         .cta-container h2 {
@@ -657,7 +657,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--topia-gold), #F5C866);
+            background: linear-gradient(135deg, var(--topia-orange), #FFA940);
             color: white;
             padding: 1.2rem 3rem;
             border-radius: 50px;
@@ -665,13 +665,13 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(231, 176, 68, 0.3);
+            box-shadow: 0 10px 30px rgba(247, 148, 29, 0.3);
             display: inline-block;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(231, 176, 68, 0.4);
+            box-shadow: 0 15px 40px rgba(247, 148, 29, 0.4);
         }
 
         .btn-secondary {
@@ -747,7 +747,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--topia-gold);
+            color: var(--topia-orange);
         }
 
         .footer-bottom {
@@ -796,7 +796,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/images/resources/logo-1.png" alt="Topia Consult">
+                <img src="assets/images/resources/topia-main-logo.png" alt="Topia Consult">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -1047,7 +1047,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-logo">
-                        <img src="assets/images/resources/logo-2.png" alt="Topia Consult">
+                        <img src="assets/images/resources/topia-main-logo.png" alt="Topia Consult">
                     </div>
                     <p class="footer-description">Empowering Africa's digital future through innovative technology consulting and solutions.</p>
                 </div>
