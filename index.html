@@ -82,7 +82,7 @@
         }
 
         .logo img {
-            height: 45px;
+            height: 60px;
             width: auto;
         }
 
@@ -373,6 +373,146 @@
             gap: 1rem;
         }
 
+        /* Certifications & Partners Section */
+        .certifications {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .cert-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cert-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .cert-header h2 {
+            font-size: 3rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .cert-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(28, 58, 92, 0.03), rgba(247, 148, 29, 0.03));
+            border-radius: 20px;
+        }
+
+        .cert-item {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-logo {
+            height: 80px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .cert-item:hover .cert-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .cert-name {
+            font-size: 0.9rem;
+            color: var(--topia-navy);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 6rem 0;
+            background: var(--topia-light);
+        }
+
+        .clients-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .clients-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .clients-header h2 {
+            font-size: 3rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .clients-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .industry-section {
+            margin-bottom: 4rem;
+        }
+
+        .industry-title {
+            font-size: 1.5rem;
+            color: var(--topia-orange);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .client-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .client-name {
+            font-size: 1.1rem;
+            color: var(--topia-navy);
+            font-weight: 600;
+        }
+
         /* Africa Impact Section */
         .africa-impact {
             padding: 8rem 0;
@@ -553,7 +693,7 @@
         }
 
         .footer-logo img {
-            height: 40px;
+            height: 55px;
             width: auto;
             filter: brightness(0) invert(1);
         }
@@ -704,6 +844,109 @@
                     <h3>Commerce Solutions</h3>
                     <p>E-commerce platforms, payment integration, conversational commerce, and digital marketplace development.</p>
                     <a href="services-commerce.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Partners Section -->
+    <section class="certifications">
+        <div class="cert-container">
+            <div class="cert-header" data-aos="fade-up">
+                <div class="section-badge">TRUSTED PARTNERSHIPS</div>
+                <h2>Certified Cloud & Technology Partners</h2>
+                <p>Accredited by the world's leading technology platforms to deliver enterprise-grade solutions</p>
+            </div>
+            <div class="cert-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="cert-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Certified" class="cert-logo">
+                    <div class="cert-name">AWS Certified Partner</div>
+                </div>
+                <div class="cert-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Cloud_logo.svg" alt="Google Cloud" class="cert-logo">
+                    <div class="cert-name">Google Cloud Partner</div>
+                </div>
+                <div class="cert-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft Partner" class="cert-logo">
+                    <div class="cert-name">Microsoft Certified Partner</div>
+                </div>
+                <div class="cert-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" alt="HubSpot Certified" class="cert-logo">
+                    <div class="cert-name">HubSpot Certified</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="clients-container">
+            <div class="clients-header" data-aos="fade-up">
+                <div class="section-badge">OUR PORTFOLIO</div>
+                <h2>Trusted by Leading Organizations</h2>
+                <p>Delivering innovative solutions across multiple industries throughout Africa</p>
+            </div>
+
+            <div class="industry-section" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="industry-title">Financial Services & Fintech</h3>
+                <div class="clients-grid">
+                    <div class="client-card">
+                        <div class="client-name">Provident Insurance</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Margins ID Systems</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Mobile Money Providers</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Digital Payment Platforms</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="industry-section" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="industry-title">Consulting & Professional Services</h3>
+                <div class="clients-grid">
+                    <div class="client-card">
+                        <div class="client-name">Technology Consulting Firms</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Business Process Outsourcing</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Management Consultancies</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="industry-section" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="industry-title">Technology & Telecommunications</h3>
+                <div class="clients-grid">
+                    <div class="client-card">
+                        <div class="client-name">Telecom Operators</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">ISPs & Data Centers</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Software Companies</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="industry-section" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="industry-title">E-Commerce & Retail</h3>
+                <div class="clients-grid">
+                    <div class="client-card">
+                        <div class="client-name">Online Marketplaces</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Retail Platforms</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Logistics & Delivery</div>
+                    </div>
                 </div>
             </div>
         </div>
