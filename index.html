@@ -123,12 +123,9 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background-image:
-                linear-gradient(135deg, rgba(28, 58, 92, 0.95) 0%, rgba(28, 58, 92, 0.85) 50%, rgba(247, 148, 29, 0.3) 100%),
-                url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             position: relative;
             display: flex;
             align-items: center;
@@ -143,9 +140,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1.5" fill="rgba(247,148,29,0.15)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            background-size: 100px 100px;
-            opacity: 0.4;
+            background: linear-gradient(135deg, rgba(28, 58, 92, 0.92) 0%, rgba(28, 58, 92, 0.88) 50%, rgba(247, 148, 29, 0.4) 100%);
         }
 
         .hero-container {
@@ -753,6 +748,129 @@
             margin-right: 0.5rem;
         }
 
+        /* Team Section */
+        .team {
+            padding: 8rem 0;
+            background: var(--topia-light);
+        }
+
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 5rem;
+        }
+
+        .team-highlight {
+            background: linear-gradient(135deg, rgba(28, 58, 92, 0.05), rgba(247, 148, 29, 0.05));
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(28, 58, 92, 0.1);
+            margin-bottom: 5rem;
+        }
+
+        .team-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-stat {
+            text-align: center;
+        }
+
+        .team-stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--topia-orange);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-stat-label {
+            font-size: 1.1rem;
+            color: var(--topia-navy);
+            font-weight: 600;
+        }
+
+        /* Impact Focus Section */
+        .impact-focus {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .focus-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .focus-card {
+            background: linear-gradient(135deg, rgba(28, 58, 92, 0.02), rgba(247, 148, 29, 0.02));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(28, 58, 92, 0.08);
+            transition: all 0.3s;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--topia-orange);
+            box-shadow: 0 20px 50px rgba(247, 148, 29, 0.1);
+        }
+
+        .focus-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .focus-card h3 {
+            font-size: 2rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .focus-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .focus-list {
+            list-style: none;
+        }
+
+        .focus-list li {
+            color: var(--topia-charcoal);
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(28, 58, 92, 0.1);
+            font-size: 1rem;
+        }
+
+        .focus-list li:last-child {
+            border-bottom: none;
+        }
+
+        .focus-list li::before {
+            content: "→";
+            color: var(--topia-orange);
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
         /* Contact Section */
         .contact-section {
             padding: 8rem 0;
@@ -938,25 +1056,25 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content" data-aos="fade-up">
-                <span class="hero-badge">🚀 Technology Consulting for Africa</span>
-                <h1>Powering Africa's <span class="hero-gradient">Digital Transformation</span></h1>
-                <p>Building the technology framework for Africa's digitalization agenda through world-class consulting in digital solutions, ESG, revenue assurance, and commerce platforms.</p>
+                <span class="hero-badge">🇬🇭 Technology Consulting Firm | Ghana-Based, Africa-Focused</span>
+                <h1>Strategic <span class="hero-gradient">Technology Consulting</span> for Africa's Digital Future</h1>
+                <p>We are expert technology consultants delivering world-class digital solutions, cloud architecture, ESG frameworks, and financial inclusion platforms that drive sustainable growth across Africa.</p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn-primary">Explore Solutions</a>
-                    <a href="#contact" class="btn-secondary">Book Consultation</a>
+                    <a href="#services" class="btn-primary">Our Consulting Services</a>
+                    <a href="#contact" class="btn-secondary">Schedule a Consultation</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Years Combined Expertise</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
                         <div class="stat-number">150+</div>
                         <div class="stat-label">Projects Delivered</div>
                     </div>
-                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Countries</div>
-                    </div>
                     <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
                         <div class="stat-number">15+</div>
-                        <div class="stat-label">Industries</div>
+                        <div class="stat-label">Industries Served</div>
                     </div>
                 </div>
             </div>
@@ -966,9 +1084,9 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="section-header" data-aos="fade-up">
-            <div class="section-badge">OUR SOLUTIONS</div>
-            <h2 class="section-title">Technology Solutions for Every Challenge</h2>
-            <p class="section-description">Comprehensive consulting services designed to accelerate your digital transformation journey</p>
+            <div class="section-badge">CONSULTING SERVICES</div>
+            <h2 class="section-title">Expert Consulting Across All Technology Domains</h2>
+            <p class="section-description">Strategic advisory and implementation services delivered by experienced consultants with deep technical expertise</p>
         </div>
         <div class="services-grid">
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
@@ -1135,7 +1253,7 @@
                     <li><i class="fas fa-check-circle"></i> Ghana-headquartered with Pan-African reach</li>
                     <li><i class="fas fa-check-circle"></i> Scalable solutions built for growth</li>
                     <li><i class="fas fa-check-circle"></i> Certified partnerships with global tech leaders</li>
-                    <li><i class="fas fa-check-circle"></i> Proven track record across 20+ countries</li>
+                    <li><i class="fas fa-check-circle"></i> 30+ years combined team expertise</li>
                 </ul>
                 <a href="#contact" class="btn-primary" style="display: inline-block; margin-top: 2rem;">Partner With Us</a>
             </div>
@@ -1145,7 +1263,7 @@
                     <div style="color: rgba(255,255,255,0.8); line-height: 2;">
                         <p><strong style="color: var(--topia-orange);">🇬🇭 Ghana Headquarters:</strong> Local expertise, global standards</p>
                         <p><strong style="color: var(--topia-orange);">📈 Scalable Architecture:</strong> Solutions that grow with your business</p>
-                        <p><strong style="color: var(--topia-orange);">🌍 Pan-African Deployment:</strong> Successfully operating in 20+ countries</p>
+                        <p><strong style="color: var(--topia-orange);">👥 30+ Years Expertise:</strong> Seasoned consultants across all domains</p>
                         <p><strong style="color: var(--topia-orange);">🚀 Future-Ready:</strong> Cloud-native, API-first, scalable by design</p>
                     </div>
                 </div>
@@ -1256,6 +1374,84 @@
                         <li><i class="fas fa-bullseye"></i> Personalized Recommendations</li>
                         <li><i class="fas fa-search-dollar"></i> Risk Assessment Models</li>
                         <li><i class="fas fa-lightbulb"></i> Market Intelligence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="team-container">
+            <div class="team-intro" data-aos="fade-up">
+                <div class="section-badge">OUR TEAM</div>
+                <h2 class="section-title">30+ Years of Combined Expertise</h2>
+                <p class="section-description">Our seasoned team of consultants brings together decades of experience across technology, business strategy, and implementation</p>
+            </div>
+            <div class="team-highlight" data-aos="fade-up" data-aos-delay="100">
+                <h3 style="font-size: 2.5rem; color: var(--topia-navy); text-align: center; margin-bottom: 2rem;">Expertise Across All Spheres</h3>
+                <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 3rem;">Our multidisciplinary team comprises senior engineers, cloud architects, data scientists, business analysts, and strategic advisors with proven track records in delivering complex technology projects.</p>
+                <div class="team-stats-grid">
+                    <div class="team-stat" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="team-stat-number">30+</div>
+                        <div class="team-stat-label">Years Combined Experience</div>
+                    </div>
+                    <div class="team-stat" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="team-stat-number">10+</div>
+                        <div class="team-stat-label">Senior Consultants</div>
+                    </div>
+                    <div class="team-stat" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="team-stat-number">15+</div>
+                        <div class="team-stat-label">Technology Domains</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Focus Section -->
+    <section class="impact-focus">
+        <div class="focus-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">OUR IMPACT FOCUS</div>
+                <h2 class="section-title">Committed to Sustainable & Inclusive Growth</h2>
+                <p class="section-description">Aligning our consulting work with global sustainability goals and Africa's development priorities</p>
+            </div>
+            <div class="focus-grid">
+                <div class="focus-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="focus-icon">🌊</div>
+                    <h3>Blue Economy</h3>
+                    <p>Leveraging technology to unlock the potential of Africa's maritime and aquatic resources</p>
+                    <ul class="focus-list">
+                        <li>Marine & coastal resource management systems</li>
+                        <li>Fisheries & aquaculture technology platforms</li>
+                        <li>Port & logistics digitalization</li>
+                        <li>Ocean data analytics & monitoring</li>
+                        <li>Sustainable tourism tech solutions</li>
+                    </ul>
+                </div>
+                <div class="focus-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="focus-icon">🎯</div>
+                    <h3>UN Sustainable Development Goals (SDGs)</h3>
+                    <p>Technology solutions aligned with the UN's global goals for sustainable development</p>
+                    <ul class="focus-list">
+                        <li>SDG 8: Decent Work & Economic Growth</li>
+                        <li>SDG 9: Industry, Innovation & Infrastructure</li>
+                        <li>SDG 10: Reduced Inequalities</li>
+                        <li>SDG 13: Climate Action</li>
+                        <li>SDG 17: Partnerships for the Goals</li>
+                    </ul>
+                </div>
+                <div class="focus-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="focus-icon">💰</div>
+                    <h3>Financial Services & Digital Inclusion</h3>
+                    <p>Expanding access to financial services and digital opportunities for all</p>
+                    <ul class="focus-list">
+                        <li>Mobile money & digital payment platforms</li>
+                        <li>Banking-as-a-Service (BaaS) solutions</li>
+                        <li>Microfinance & lending technology</li>
+                        <li>Digital identity & KYC systems</li>
+                        <li>Financial literacy & education platforms</li>
                     </ul>
                 </div>
             </div>
