@@ -20,6 +20,7 @@
     "@types/react": "~19.1.10",
     "axios": "^1.12.2",
     "expo": "~54.0.13",
+    "expo-linking": "~8.0.8",
     "expo-router": "^6.0.12",
     "expo-status-bar": "~3.0.8",
     "react": "19.1.0",
