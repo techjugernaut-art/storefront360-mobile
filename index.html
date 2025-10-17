@@ -580,6 +580,179 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
+        /* Technical Expertise Section */
+        .expertise {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .expertise-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .expertise-card {
+            background: linear-gradient(135deg, rgba(28, 58, 92, 0.05), rgba(247, 148, 29, 0.05));
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(28, 58, 92, 0.1);
+            transition: all 0.3s;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--topia-orange);
+            box-shadow: 0 20px 50px rgba(247, 148, 29, 0.15);
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            color: var(--topia-orange);
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            color: var(--topia-navy);
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .expertise-list li {
+            color: var(--topia-charcoal);
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .expertise-list li::before {
+            content: "✓";
+            color: var(--topia-orange);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* AI & Financial Inclusion Section */
+        .ai-inclusion {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--topia-navy) 0%, #0D2847 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-inclusion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="ai-grid" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(247,148,29,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23ai-grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .ai-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-content {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .ai-content h2 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .ai-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(247, 148, 29, 0.2);
+            transition: all 0.3s;
+        }
+
+        .ai-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--topia-orange);
+            transform: translateY(-5px);
+        }
+
+        .ai-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-card h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .ai-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .ai-features li {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+
+        .ai-features li:last-child {
+            border-bottom: none;
+        }
+
+        .ai-features i {
+            color: var(--topia-orange);
+            margin-right: 0.5rem;
+        }
+
         /* Contact Section */
         .contact-section {
             padding: 8rem 0;
@@ -863,7 +1036,7 @@
                     <div class="cert-name">AWS Certified Partner</div>
                 </div>
                 <div class="cert-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Cloud_logo.svg" alt="Google Cloud" class="cert-logo">
+                    <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Google Cloud" class="cert-logo" style="height: 60px;">
                     <div class="cert-name">Google Cloud Partner</div>
                 </div>
                 <div class="cert-item">
@@ -894,13 +1067,13 @@
                         <div class="client-name">Provident Insurance</div>
                     </div>
                     <div class="client-card">
-                        <div class="client-name">Margins ID Systems</div>
-                    </div>
-                    <div class="client-card">
                         <div class="client-name">Mobile Money Providers</div>
                     </div>
                     <div class="client-card">
                         <div class="client-name">Digital Payment Platforms</div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Banking Institutions</div>
                     </div>
                 </div>
             </div>
@@ -956,25 +1129,134 @@
     <section class="africa-impact" id="impact">
         <div class="africa-container">
             <div class="africa-content" data-aos="fade-right">
-                <h2>Building Africa's Digital Infrastructure</h2>
-                <p>We're committed to creating a robust technology framework that powers Africa's digital economy and connects the continent to global opportunities.</p>
+                <h2>Ghana-Based Excellence, Africa-Scale Solutions</h2>
+                <p>Operating from Ghana, we deliver world-class technology solutions designed for scale across Africa. Our deep local expertise combined with global standards enables us to build systems that work today and scale seamlessly tomorrow.</p>
                 <ul class="africa-features">
-                    <li><i class="fas fa-check-circle"></i> Pan-African technology expertise</li>
-                    <li><i class="fas fa-check-circle"></i> Localized solutions for African markets</li>
-                    <li><i class="fas fa-check-circle"></i> Partnership with global tech leaders</li>
-                    <li><i class="fas fa-check-circle"></i> Commitment to sustainable growth</li>
+                    <li><i class="fas fa-check-circle"></i> Ghana-headquartered with Pan-African reach</li>
+                    <li><i class="fas fa-check-circle"></i> Scalable solutions built for growth</li>
+                    <li><i class="fas fa-check-circle"></i> Certified partnerships with global tech leaders</li>
+                    <li><i class="fas fa-check-circle"></i> Proven track record across 20+ countries</li>
                 </ul>
                 <a href="#contact" class="btn-primary" style="display: inline-block; margin-top: 2rem;">Partner With Us</a>
             </div>
             <div class="africa-visual" data-aos="fade-left">
                 <div class="visual-box">
-                    <h3 style="color: white; font-size: 2rem; margin-bottom: 2rem;">Our Impact Across Africa</h3>
+                    <h3 style="color: white; font-size: 2rem; margin-bottom: 2rem;">Built in Ghana, Scaled for Africa</h3>
                     <div style="color: rgba(255,255,255,0.8); line-height: 2;">
-                        <p><strong style="color: var(--topia-gold);">🌍 Pan-African Reach:</strong> Serving clients across 20+ African countries</p>
-                        <p><strong style="color: var(--topia-gold);">💡 Innovation First:</strong> Implementing cutting-edge technologies adapted for African markets</p>
-                        <p><strong style="color: var(--topia-gold);">🤝 Local Expertise:</strong> Deep understanding of African business environments</p>
-                        <p><strong style="color: var(--topia-gold);">📈 Measurable Results:</strong> Proven track record of successful digital transformations</p>
+                        <p><strong style="color: var(--topia-orange);">🇬🇭 Ghana Headquarters:</strong> Local expertise, global standards</p>
+                        <p><strong style="color: var(--topia-orange);">📈 Scalable Architecture:</strong> Solutions that grow with your business</p>
+                        <p><strong style="color: var(--topia-orange);">🌍 Pan-African Deployment:</strong> Successfully operating in 20+ countries</p>
+                        <p><strong style="color: var(--topia-orange);">🚀 Future-Ready:</strong> Cloud-native, API-first, scalable by design</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Expertise Section -->
+    <section class="expertise">
+        <div class="expertise-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">TECHNICAL EXCELLENCE</div>
+                <h2 class="section-title">Deep Technical Expertise Across the Stack</h2>
+                <p class="section-description">World-class technical capabilities delivered by certified experts with proven track records</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="expertise-icon">☁️</div>
+                    <h3>Cloud Architecture</h3>
+                    <p>Enterprise-grade cloud solutions certified by leading platforms</p>
+                    <ul class="expertise-list">
+                        <li>AWS Certified Solutions</li>
+                        <li>Google Cloud Platform</li>
+                        <li>Microsoft Azure</li>
+                        <li>Hybrid & Multi-Cloud</li>
+                        <li>Serverless Architecture</li>
+                    </ul>
+                </div>
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="expertise-icon">💻</div>
+                    <h3>Software Engineering</h3>
+                    <p>Full-stack development with modern frameworks and best practices</p>
+                    <ul class="expertise-list">
+                        <li>Python, Django, Node.js</li>
+                        <li>React, Angular, Vue.js</li>
+                        <li>Mobile (iOS & Android)</li>
+                        <li>RESTful & GraphQL APIs</li>
+                        <li>Microservices Architecture</li>
+                    </ul>
+                </div>
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="expertise-icon">🗄️</div>
+                    <h3>Data & Analytics</h3>
+                    <p>Robust data infrastructure and intelligent analytics platforms</p>
+                    <ul class="expertise-list">
+                        <li>PostgreSQL, MySQL, MongoDB</li>
+                        <li>Data Warehousing</li>
+                        <li>Business Intelligence</li>
+                        <li>Real-time Analytics</li>
+                        <li>Big Data Processing</li>
+                    </ul>
+                </div>
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>DevOps & Security</h3>
+                    <p>Automated deployment pipelines with enterprise security</p>
+                    <ul class="expertise-list">
+                        <li>CI/CD Pipelines</li>
+                        <li>Docker & Kubernetes</li>
+                        <li>Infrastructure as Code</li>
+                        <li>Security Best Practices</li>
+                        <li>24/7 Monitoring & Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & Financial Inclusion Section -->
+    <section class="ai-inclusion">
+        <div class="ai-container">
+            <div class="ai-content" data-aos="fade-up">
+                <div class="section-badge" style="color: var(--topia-orange);">INNOVATION FOCUS</div>
+                <h2>AI-Powered Solutions for Financial Inclusion</h2>
+                <p>Leveraging artificial intelligence and machine learning to democratize financial services and drive inclusive growth across Africa</p>
+            </div>
+            <div class="ai-grid">
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ai-card-icon">🤖</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Intelligent systems that learn, adapt, and optimize for African markets</p>
+                    <ul class="ai-features">
+                        <li><i class="fas fa-brain"></i> Predictive Analytics & Forecasting</li>
+                        <li><i class="fas fa-robot"></i> Chatbots & Conversational AI</li>
+                        <li><i class="fas fa-shield-alt"></i> Fraud Detection & Prevention</li>
+                        <li><i class="fas fa-chart-line"></i> Credit Scoring Models</li>
+                        <li><i class="fas fa-user-check"></i> Customer Behavior Analysis</li>
+                    </ul>
+                </div>
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ai-card-icon">💳</div>
+                    <h3>Financial Inclusion</h3>
+                    <p>Expanding access to financial services for underserved communities</p>
+                    <ul class="ai-features">
+                        <li><i class="fas fa-mobile-alt"></i> Mobile Money Integration</li>
+                        <li><i class="fas fa-wallet"></i> Digital Wallet Solutions</li>
+                        <li><i class="fas fa-hand-holding-usd"></i> Microfinance Platforms</li>
+                        <li><i class="fas fa-users"></i> Agent Banking Systems</li>
+                        <li><i class="fas fa-exchange-alt"></i> Cross-Border Payments</li>
+                    </ul>
+                </div>
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="ai-card-icon">📊</div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Transform data into actionable intelligence for better decisions</p>
+                    <ul class="ai-features">
+                        <li><i class="fas fa-database"></i> Real-time Data Processing</li>
+                        <li><i class="fas fa-chart-pie"></i> Customer Segmentation</li>
+                        <li><i class="fas fa-bullseye"></i> Personalized Recommendations</li>
+                        <li><i class="fas fa-search-dollar"></i> Risk Assessment Models</li>
+                        <li><i class="fas fa-lightbulb"></i> Market Intelligence</li>
+                    </ul>
                 </div>
             </div>
         </div>
