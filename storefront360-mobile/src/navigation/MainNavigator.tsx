@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { COLORS } from '../constants/config';
 
@@ -7,8 +8,14 @@ import { COLORS } from '../constants/config';
 import HomeScreen from '../screens/HomeScreen';
 import POSScreen from '../screens/POSScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import ProductsScreen from '../screens/ProductsScreen';
+import SalesHistoryScreen from '../screens/SalesHistoryScreen';
+import ReportsScreen from '../screens/ReportsScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import RewardsScreen from '../screens/RewardsScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 // Custom center button component
 function CustomTabBarButton({ children, onPress }: any) {
@@ -23,6 +30,21 @@ function CustomTabBarButton({ children, onPress }: any) {
   );
 }
 
+// Home Stack - includes all screens accessible from Home
+function HomeStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomeMain" component={HomeScreen} />
+      <Stack.Screen name="Products" component={ProductsScreen} />
+      <Stack.Screen name="SalesHistory" component={SalesHistoryScreen} />
+      <Stack.Screen name="Reports" component={ReportsScreen} />
+      <Stack.Screen name="Rewards" component={RewardsScreen} />
+      <Stack.Screen name="Notifications" component={NotificationsScreen} />
+    </Stack.Navigator>
+  );
+}
+
+// Main Bottom Tab Navigator
 export default function MainNavigator() {
   return (
     <Tab.Navigator
@@ -37,7 +59,7 @@ export default function MainNavigator() {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeStack}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <View style={styles.iconContainer}>
