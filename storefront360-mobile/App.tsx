@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useAuthStore } from './src/store/authStore';
 import LoginScreen from './src/screens/LoginScreen';
 import MainNavigator from './src/navigation/MainNavigator';
+import WebContainer from './src/components/WebContainer';
 import { COLORS } from './src/constants/config';
 
 export default function App() {
@@ -20,9 +21,11 @@ export default function App() {
   if (isLoading) {
     return (
       <SafeAreaProvider>
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color={COLORS.primary} />
-        </View>
+        <WebContainer>
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color={COLORS.primary} />
+          </View>
+        </WebContainer>
         <StatusBar style="auto" />
       </SafeAreaProvider>
     );
@@ -30,9 +33,11 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        {isAuthenticated ? <MainNavigator /> : <LoginScreen />}
-      </NavigationContainer>
+      <WebContainer>
+        <NavigationContainer>
+          {isAuthenticated ? <MainNavigator /> : <LoginScreen />}
+        </NavigationContainer>
+      </WebContainer>
       <StatusBar style="auto" />
     </SafeAreaProvider>
   );
