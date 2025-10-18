@@ -1,4 +1,7 @@
-export const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5000';
+// Use production API URL for web, environment variable for native
+export const API_URL =
+  process.env.EXPO_PUBLIC_API_URL ||
+  'https://storefront360-api-7c0fba1e7336.herokuapp.com';
 export const API_TIMEOUT = parseInt(process.env.EXPO_PUBLIC_API_TIMEOUT || '10000');
 
 export const APP_NAME = 'Storefront 360';
