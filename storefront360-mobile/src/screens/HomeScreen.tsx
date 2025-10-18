@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -9,97 +9,165 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '../store/authStore';
 import { COLORS, SIZES, SPACING } from '../constants/config';
+import api from '../services/api';
 
 export default function HomeScreen({ navigation }: any) {
   const { user } = useAuthStore();
+  const [metrics, setMetrics] = useState({
+    totalSales: 0,
+    totalProfit: 0,
+    totalExpenses: 0,
+  });
+  const [loading, setLoading] = useState(true);
 
-  // Sample data - will be replaced with actual API data
-  const todaySales = 850.0;
-  const totalProfit = 350.0;
-  const totalExpenses = 500.0;
+  useEffect(() => {
+    fetchDashboardMetrics();
+  }, []);
+
+  const fetchDashboardMetrics = async () => {
+    try {
+      // TODO: Replace with actual API endpoint when available
+      // const response = await api.get('/api/dashboard/metrics');
+      // setMetrics(response.data.data);
+
+      // Using sample data for now
+      setMetrics({
+        totalSales: 850.00,
+        totalProfit: 350.00,
+        totalExpenses: 500.00,
+      });
+    } catch (error) {
+      console.error('Failed to fetch metrics:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const quickActions = [
-    { id: 1, title: 'Sales History', icon: '📊', screen: 'SalesHistory' },
-    { id: 2, title: 'Products', icon: '📦', screen: 'Products' },
-    { id: 3, title: 'Reports', icon: '📈', screen: 'Reports' },
-    { id: 4, title: 'Points & Rewards', icon: '🎁', screen: 'Rewards' },
+    {
+      id: 1,
+      title: 'Sales History',
+      icon: '🛒',
+      bgColor: '#D1F4E0',
+      iconColor: '#10B981',
+      screen: 'SalesHistory',
+    },
+    {
+      id: 2,
+      title: 'Products',
+      icon: '📦',
+      bgColor: '#DBEAFE',
+      iconColor: '#3B82F6',
+      screen: 'Products',
+    },
+    {
+      id: 3,
+      title: 'Reports',
+      icon: '📊',
+      bgColor: '#E9D5FF',
+      iconColor: '#A855F7',
+      screen: 'Reports',
+    },
+    {
+      id: 4,
+      title: 'Points & Rewards',
+      icon: '🎁',
+      bgColor: '#FEE2E2',
+      iconColor: '#EF4444',
+      screen: 'Rewards',
+    },
   ];
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Store Profile Header */}
-        <View style={styles.header}>
-          <View style={styles.storeInfo}>
-            <View style={styles.storeLogo}>
-              <Text style={styles.storeLogoText}>S</Text>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.appTitle}>Storefront</Text>
+        <TouchableOpacity
+          style={styles.notificationButton}
+          onPress={() => navigation.navigate('Notifications')}
+        >
+          <Text style={styles.bellIcon}>🔔</Text>
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+        {/* Store Profile Card & Metrics */}
+        <View style={styles.metricsSection}>
+          {/* Store Profile */}
+          <View style={styles.storeCard}>
+            <View style={styles.storeLogoContainer}>
+              <View style={styles.storeLogo}>
+                <Text style={styles.storeLogoText}>LT</Text>
+              </View>
+              <View style={styles.verifiedBadge}>
+                <Text style={styles.checkMark}>✓</Text>
+              </View>
             </View>
-            <View style={styles.storeDetails}>
-              <Text style={styles.storeName}>Storefront 360</Text>
+            <View style={styles.storeInfo}>
+              <Text style={styles.storeName}>
+                {user?.fullName || 'Luminar Threads'}
+              </Text>
               <Text style={styles.storeLocation}>Teshie, Accra</Text>
             </View>
-          </View>
-          <TouchableOpacity style={styles.notificationButton}>
-            <Text style={styles.notificationIcon}>🔔</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Today's Metrics */}
-        <View style={styles.metricsContainer}>
-          <Text style={styles.sectionTitle}>Today's Overview</Text>
-
-          <View style={styles.mainMetricCard}>
-            <Text style={styles.mainMetricLabel}>Total Sales</Text>
-            <Text style={styles.mainMetricValue}>GHS {todaySales.toFixed(2)}</Text>
+            <View style={styles.storeActions}>
+              <TouchableOpacity style={styles.storeActionBtn}>
+                <Text style={styles.storeCheckIcon}>✓</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
+          {/* Today Badge */}
+          <View style={styles.todayBadge}>
+            <Text style={styles.todayText}>Today</Text>
+          </View>
+
+          {/* Total Sales */}
+          <View style={styles.totalSalesContainer}>
+            <Text style={styles.totalSalesLabel}>Total Sales</Text>
+            <Text style={styles.totalSalesValue}>
+              GHS {metrics.totalSales.toFixed(2)}
+            </Text>
+          </View>
+
+          {/* Profit & Expenses */}
           <View style={styles.subMetricsRow}>
             <View style={styles.subMetricCard}>
               <Text style={styles.subMetricLabel}>Total Profit</Text>
-              <Text style={[styles.subMetricValue, { color: COLORS.success }]}>
-                GHS {totalProfit}
-              </Text>
+              <Text style={styles.subMetricValue}>GHS {metrics.totalProfit}</Text>
             </View>
             <View style={styles.subMetricCard}>
               <Text style={styles.subMetricLabel}>Total Expenses</Text>
-              <Text style={[styles.subMetricValue, { color: COLORS.error }]}>
-                GHS {totalExpenses}
-              </Text>
+              <Text style={styles.subMetricValue}>GHS {metrics.totalExpenses}</Text>
             </View>
           </View>
         </View>
 
-        {/* Quick Actions */}
+        {/* Quick Actions Grid */}
         <View style={styles.actionsContainer}>
-          <View style={styles.actionsGrid}>
-            {quickActions.map((action) => (
-              <TouchableOpacity
-                key={action.id}
-                style={styles.actionCard}
-                activeOpacity={0.7}
-                onPress={() => {
-                  // Navigation will be implemented
-                  console.log('Navigate to:', action.screen);
-                }}
+          {quickActions.map((action) => (
+            <TouchableOpacity
+              key={action.id}
+              style={styles.actionCard}
+              activeOpacity={0.7}
+              onPress={() => {
+                if (action.screen && navigation) {
+                  navigation.navigate(action.screen);
+                }
+              }}
+            >
+              <View
+                style={[
+                  styles.actionIconCircle,
+                  { backgroundColor: action.bgColor },
+                ]}
               >
-                <View style={styles.actionIconContainer}>
-                  <Text style={styles.actionIcon}>{action.icon}</Text>
-                </View>
-                <Text style={styles.actionTitle}>{action.title}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+                <Text style={styles.actionIcon}>{action.icon}</Text>
+              </View>
+              <Text style={styles.actionTitle}>{action.title}</Text>
+            </TouchableOpacity>
+          ))}
         </View>
-
-        {/* Welcome Message for First Time Users */}
-        {user?.role === 'super_admin' && (
-          <View style={styles.infoCard}>
-            <Text style={styles.infoTitle}>👋 Welcome, {user?.fullName}!</Text>
-            <Text style={styles.infoText}>
-              Start managing your store by creating your first sale or adding products.
-            </Text>
-          </View>
-        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -114,43 +182,93 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: SPACING.lg,
-    backgroundColor: COLORS.surface,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.border,
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: SPACING.md,
+    backgroundColor: COLORS.background,
   },
-  storeInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  appTitle: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: COLORS.text,
   },
-  storeLogo: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: COLORS.primary,
+  notificationButton: {
+    width: 40,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  bellIcon: {
+    fontSize: 24,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  metricsSection: {
+    backgroundColor: '#E0E7FF',
+    marginHorizontal: SPACING.lg,
+    marginTop: SPACING.md,
+    padding: SPACING.lg,
+    borderRadius: 20,
+    alignItems: 'center',
+  },
+  storeCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: COLORS.surface,
+    width: '100%',
+    padding: SPACING.md,
+    borderRadius: 16,
+    marginBottom: SPACING.lg,
+  },
+  storeLogoContainer: {
+    position: 'relative',
     marginRight: SPACING.md,
   },
+  storeLogo: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: '#E11D48',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   storeLogoText: {
-    fontSize: SIZES.xl,
+    fontSize: 20,
     fontWeight: 'bold',
     color: COLORS.surface,
   },
-  storeDetails: {
+  verifiedBadge: {
+    position: 'absolute',
+    right: -4,
+    bottom: -4,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: COLORS.primary,
     justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: COLORS.surface,
+  },
+  checkMark: {
+    fontSize: 12,
+    color: COLORS.surface,
+    fontWeight: 'bold',
+  },
+  storeInfo: {
+    flex: 1,
   },
   storeName: {
     fontSize: SIZES.lg,
     fontWeight: 'bold',
     color: COLORS.text,
+    marginBottom: 2,
   },
   storeLocation: {
     fontSize: SIZES.sm,
     color: COLORS.textSecondary,
-    marginTop: 2,
   },
-  notificationButton: {
+  storeActions: {
     width: 40,
     height: 40,
     borderRadius: 20,
@@ -158,82 +276,89 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  notificationIcon: {
+  storeActionBtn: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  storeCheckIcon: {
     fontSize: 20,
   },
-  metricsContainer: {
-    padding: SPACING.lg,
+  todayBadge: {
+    backgroundColor: COLORS.surface,
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: SPACING.sm,
+    borderRadius: 20,
+    marginBottom: SPACING.lg,
   },
-  sectionTitle: {
-    fontSize: SIZES.lg,
-    fontWeight: 'bold',
-    color: COLORS.text,
-    marginBottom: SPACING.md,
-  },
-  mainMetricCard: {
-    backgroundColor: COLORS.primary,
-    padding: SPACING.lg,
-    borderRadius: 16,
-    marginBottom: SPACING.md,
-  },
-  mainMetricLabel: {
+  todayText: {
     fontSize: SIZES.md,
-    color: COLORS.surface,
-    opacity: 0.9,
+    fontWeight: '600',
+    color: COLORS.text,
+  },
+  totalSalesContainer: {
+    alignItems: 'center',
+    marginBottom: SPACING.md,
+  },
+  totalSalesLabel: {
+    fontSize: SIZES.md,
+    color: COLORS.text,
     marginBottom: SPACING.xs,
   },
-  mainMetricValue: {
-    fontSize: SIZES.xxxl,
+  totalSalesValue: {
+    fontSize: 42,
     fontWeight: 'bold',
-    color: COLORS.surface,
+    color: COLORS.text,
   },
   subMetricsRow: {
     flexDirection: 'row',
     gap: SPACING.md,
+    width: '100%',
   },
   subMetricCard: {
     flex: 1,
     backgroundColor: COLORS.surface,
-    padding: SPACING.lg,
+    padding: SPACING.md,
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: COLORS.border,
+    alignItems: 'center',
   },
   subMetricLabel: {
     fontSize: SIZES.sm,
     color: COLORS.textSecondary,
     marginBottom: SPACING.xs,
+    textAlign: 'center',
   },
   subMetricValue: {
-    fontSize: SIZES.xl,
+    fontSize: SIZES.lg,
     fontWeight: 'bold',
+    color: COLORS.text,
   },
   actionsContainer: {
-    padding: SPACING.lg,
-    paddingTop: 0,
-  },
-  actionsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    padding: SPACING.lg,
     gap: SPACING.md,
   },
   actionCard: {
-    width: '47.5%',
+    width: '47%',
     backgroundColor: COLORS.surface,
     padding: SPACING.lg,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: COLORS.border,
+    borderRadius: 16,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  actionIconContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: COLORS.background,
+  actionIconCircle: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: SPACING.sm,
+    marginBottom: SPACING.md,
   },
   actionIcon: {
     fontSize: 32,
@@ -243,25 +368,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: COLORS.text,
     textAlign: 'center',
-  },
-  infoCard: {
-    backgroundColor: '#EFF6FF',
-    margin: SPACING.lg,
-    marginTop: 0,
-    padding: SPACING.lg,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: COLORS.primary,
-  },
-  infoTitle: {
-    fontSize: SIZES.lg,
-    fontWeight: 'bold',
-    color: COLORS.primary,
-    marginBottom: SPACING.sm,
-  },
-  infoText: {
-    fontSize: SIZES.md,
-    color: COLORS.text,
-    lineHeight: 22,
   },
 });
