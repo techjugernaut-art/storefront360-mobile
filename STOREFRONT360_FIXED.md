@@ -26,15 +26,21 @@
 
 ---
 
-### 2. ✅ Login Working (CONFIRMED)
+### 2. ✅ Login Working (FIXED)
 
 **Problem:**
 - User reported unable to login
+- Web app was trying to connect to `localhost:5000` instead of production API
 
-**Investigation:**
-- Tested API endpoint directly: ✅ Working perfectly
-- Backend returns valid JWT token
-- API Health: https://storefront360-api-7c0fba1e7336.herokuapp.com/health ✅
+**Root Cause:**
+- Environment variable `EXPO_PUBLIC_API_URL` not available in web build
+- Config was falling back to localhost URL
+
+**Solution:**
+- Updated `src/constants/config.ts` to use production API URL as default fallback
+- Changed from `http://localhost:5000` to `https://storefront360-api-7c0fba1e7336.herokuapp.com`
+- Environment variable still takes precedence for native/local development
+- Deployed fix to Heroku (v5)
 
 **Demo Credentials:**
 ```
@@ -43,10 +49,7 @@ Country Code: +233 (Ghana)
 PIN: 123456
 ```
 
-**Status:** Login is fully functional. If issue persists:
-1. Clear browser cache
-2. Try incognito/private mode
-3. Check browser console for errors
+**Status:** ✅ Login now working. API connection fixed.
 
 ---
 
