@@ -33,14 +33,17 @@
 - Web app was trying to connect to `localhost:5000` instead of production API
 
 **Root Cause:**
-- Environment variable `EXPO_PUBLIC_API_URL` not available in web build
-- Config was falling back to localhost URL
+1. Frontend API URL issue: Environment variable `EXPO_PUBLIC_API_URL` not available in web build - was falling back to localhost
+2. CORS issue: API was configured to accept requests from wrong domain (`storefront360-web.herokuapp.com` instead of `storefront360-web-d38762135ee3.herokuapp.com`)
 
 **Solution:**
-- Updated `src/constants/config.ts` to use production API URL as default fallback
-- Changed from `http://localhost:5000` to `https://storefront360-api-7c0fba1e7336.herokuapp.com`
-- Environment variable still takes precedence for native/local development
-- Deployed fix to Heroku (v5)
+1. Updated `src/constants/config.ts` to use production API URL as default fallback
+   - Changed from `http://localhost:5000` to `https://storefront360-api-7c0fba1e7336.herokuapp.com`
+   - Deployed fix to Heroku (v5)
+2. Fixed CORS configuration on API
+   - Updated `FRONTEND_URL` environment variable to correct web app domain
+   - API now accepts requests from `https://storefront360-web-d38762135ee3.herokuapp.com`
+   - API restarted (v7)
 
 **Demo Credentials:**
 ```
