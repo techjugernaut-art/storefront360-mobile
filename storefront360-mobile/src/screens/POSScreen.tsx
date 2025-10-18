@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,9 +7,13 @@ import {
   ScrollView,
   TextInput,
   Image,
+  ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 import { COLORS, SIZES, SPACING } from '../constants/config';
+import api from '../services/api';
 
 interface Product {
   id: string;
@@ -17,6 +21,7 @@ interface Product {
   price: number;
   stock: number;
   image?: string;
+  imageUrl?: string;
 }
 
 interface CartItem extends Product {
@@ -26,23 +31,52 @@ interface CartItem extends Product {
 export default function POSScreen({ navigation }: any) {
   const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Sample products - will be replaced with API data
-  const products: Product[] = [
-    { id: '1', name: 'Nestle Milo Tin', price: 120.0, stock: 120 },
-    { id: '2', name: 'Nestle Nido', price: 80.0, stock: 40 },
-    { id: '3', name: 'Nestle Cerelac', price: 110.0, stock: 85 },
-    { id: '4', name: 'Cowbell Coffee Creamer', price: 45.0, stock: 200 },
-  ];
+  // Fetch products from API
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await api.get('/api/products');
+      setProducts(response.data);
+    } catch (err: any) {
+      console.error('Error fetching products:', err);
+      setError(err.response?.data?.message || 'Failed to load products');
+      Alert.alert(
+        'Error',
+        'Failed to load products. Please try again.',
+        [{ text: 'Retry', onPress: fetchProducts }]
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const addToCart = (product: Product) => {
+    if (product.stock <= 0) {
+      Alert.alert('Out of Stock', 'This product is currently out of stock');
+      return;
+    }
+
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
       if (existingItem) {
+        // Check if adding one more would exceed stock
+        if (existingItem.quantity >= product.stock) {
+          Alert.alert('Stock Limit', `Only ${product.stock} items available`);
+          return prevCart;
+        }
         return prevCart.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
@@ -60,19 +94,26 @@ export default function POSScreen({ navigation }: any) {
 
   const cartItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const handleProcessSale = () => {
+    if (cartTotal === 0) return;
+
+    // Navigate to checkout or process sale screen
+    navigation.navigate('Checkout', { cart, total: cartTotal });
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.backIcon}>←</Text>
+          <Ionicons name="chevron-back" size={24} color={COLORS.text} />
+          <Text style={styles.backText}>Back</Text>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Make a Sale</Text>
         <TouchableOpacity style={styles.cartButton}>
-          <Text style={styles.cartIcon}>🛒</Text>
+          <Ionicons name="cart-outline" size={28} color={COLORS.text} />
           {cartItemsCount > 0 && (
             <View style={styles.cartBadge}>
               <Text style={styles.cartBadgeText}>{cartItemsCount}</Text>
@@ -81,10 +122,20 @@ export default function POSScreen({ navigation }: any) {
         </TouchableOpacity>
       </View>
 
+      {/* Title */}
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Make a Sale</Text>
+      </View>
+
       {/* Search Bar */}
       <View style={styles.searchContainer}>
         <View style={styles.searchBar}>
-          <Text style={styles.searchIcon}>🔍</Text>
+          <Ionicons
+            name="search"
+            size={20}
+            color={COLORS.textSecondary}
+            style={styles.searchIcon}
+          />
           <TextInput
             style={styles.searchInput}
             placeholder="Search products or scan barcode"
@@ -93,59 +144,91 @@ export default function POSScreen({ navigation }: any) {
             onChangeText={setSearchQuery}
           />
           <TouchableOpacity style={styles.scanButton}>
-            <Text style={styles.scanIcon}>📷</Text>
+            <Ionicons name="qr-code-outline" size={24} color={COLORS.text} />
           </TouchableOpacity>
         </View>
       </View>
 
       {/* Product List */}
-      <ScrollView
-        style={styles.productList}
-        showsVerticalScrollIndicator={false}
-      >
-        {filteredProducts.map((product) => (
-          <View key={product.id} style={styles.productCard}>
-            {/* Product Image Placeholder */}
-            <View style={styles.productImageContainer}>
-              <View style={styles.productImagePlaceholder}>
-                <Text style={styles.productImageText}>
-                  {product.name.substring(0, 1)}
+      {loading ? (
+        <View style={styles.centerContainer}>
+          <ActivityIndicator size="large" color={COLORS.primary} />
+          <Text style={styles.loadingText}>Loading products...</Text>
+        </View>
+      ) : error ? (
+        <View style={styles.centerContainer}>
+          <Ionicons name="alert-circle-outline" size={48} color={COLORS.error} />
+          <Text style={styles.errorText}>Failed to load products</Text>
+          <TouchableOpacity style={styles.retryButton} onPress={fetchProducts}>
+            <Text style={styles.retryButtonText}>Retry</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <ScrollView
+          style={styles.productList}
+          contentContainerStyle={styles.productListContent}
+          showsVerticalScrollIndicator={false}
+        >
+          {filteredProducts.map((product) => (
+            <View key={product.id} style={styles.productCard}>
+              {/* Product Image */}
+              <View style={styles.productImageContainer}>
+                {product.image || product.imageUrl ? (
+                  <Image
+                    source={{ uri: product.image || product.imageUrl }}
+                    style={styles.productImage}
+                    resizeMode="cover"
+                  />
+                ) : (
+                  <View style={styles.productImagePlaceholder}>
+                    <Ionicons name="image-outline" size={40} color={COLORS.textSecondary} />
+                  </View>
+                )}
+              </View>
+
+              {/* Product Details */}
+              <View style={styles.productDetails}>
+                <Text style={styles.productName} numberOfLines={1}>
+                  {product.name}
+                </Text>
+                <Text style={styles.productPrice}>
+                  GHS {product.price.toFixed(2)}
+                </Text>
+                <Text style={styles.productStock}>
+                  {product.stock} available
                 </Text>
               </View>
+
+              {/* Add Button */}
+              <TouchableOpacity
+                style={[
+                  styles.addButton,
+                  product.stock <= 0 && styles.addButtonDisabled,
+                ]}
+                onPress={() => addToCart(product)}
+                activeOpacity={0.7}
+                disabled={product.stock <= 0}
+              >
+                <Ionicons name="add" size={28} color={COLORS.surface} />
+              </TouchableOpacity>
             </View>
+          ))}
 
-            {/* Product Details */}
-            <View style={styles.productDetails}>
-              <Text style={styles.productName}>{product.name}</Text>
-              <Text style={styles.productPrice}>GHS {product.price.toFixed(2)}</Text>
-              <Text style={styles.productStock}>{product.stock} available</Text>
+          {filteredProducts.length === 0 && !loading && (
+            <View style={styles.emptyState}>
+              <Ionicons
+                name="search-outline"
+                size={64}
+                color={COLORS.textSecondary}
+              />
+              <Text style={styles.emptyStateText}>No products found</Text>
+              <Text style={styles.emptyStateSubtext}>
+                Try a different search term
+              </Text>
             </View>
-
-            {/* Add Button */}
-            <TouchableOpacity
-              style={styles.addButton}
-              onPress={() => addToCart(product)}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.addButtonText}>+</Text>
-            </TouchableOpacity>
-
-            {/* Options Menu */}
-            <TouchableOpacity style={styles.optionsButton}>
-              <Text style={styles.optionsIcon}>⋮</Text>
-            </TouchableOpacity>
-          </View>
-        ))}
-
-        {filteredProducts.length === 0 && (
-          <View style={styles.emptyState}>
-            <Text style={styles.emptyStateText}>No products found</Text>
-            <Text style={styles.emptyStateSubtext}>
-              Try a different search term
-            </Text>
-          </View>
-        )}
-      </ScrollView>
+          )}
+        </ScrollView>
+      )}
 
       {/* Bottom Button */}
       <View style={styles.bottomContainer}>
@@ -154,10 +237,16 @@ export default function POSScreen({ navigation }: any) {
             styles.processSaleButton,
             cartTotal === 0 && styles.processSaleButtonDisabled,
           ]}
+          onPress={handleProcessSale}
           disabled={cartTotal === 0}
           activeOpacity={0.8}
         >
-          <Text style={styles.processSaleButtonText}>
+          <Text
+            style={[
+              styles.processSaleButtonText,
+              cartTotal === 0 && styles.processSaleButtonTextDisabled,
+            ]}
+          >
             Process Sale (GHS {cartTotal.toFixed(2)})
           </Text>
         </TouchableOpacity>
@@ -175,44 +264,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: SPACING.lg,
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: SPACING.md,
     backgroundColor: COLORS.surface,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.border,
   },
   backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: COLORS.background,
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
   },
-  backIcon: {
-    fontSize: 24,
+  backText: {
+    fontSize: SIZES.lg,
     color: COLORS.text,
-  },
-  headerTitle: {
-    fontSize: SIZES.xl,
-    fontWeight: 'bold',
-    color: COLORS.text,
+    marginLeft: 4,
   },
   cartButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 48,
+    height: 48,
+    borderRadius: 12,
     backgroundColor: COLORS.background,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
   },
-  cartIcon: {
-    fontSize: 20,
-  },
   cartBadge: {
     position: 'absolute',
-    top: -4,
-    right: -4,
+    top: 4,
+    right: 4,
     backgroundColor: COLORS.error,
     borderRadius: 10,
     minWidth: 20,
@@ -223,11 +300,23 @@ const styles = StyleSheet.create({
   },
   cartBadgeText: {
     color: COLORS.surface,
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: 'bold',
   },
+  titleContainer: {
+    paddingHorizontal: SPACING.lg,
+    paddingTop: SPACING.md,
+    paddingBottom: SPACING.lg,
+    backgroundColor: COLORS.surface,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: COLORS.text,
+  },
   searchContainer: {
-    padding: SPACING.lg,
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: SPACING.md,
     backgroundColor: COLORS.surface,
   },
   searchBar: {
@@ -236,12 +325,9 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     borderRadius: 12,
     paddingHorizontal: SPACING.md,
-    height: 50,
-    borderWidth: 1,
-    borderColor: COLORS.border,
+    height: 52,
   },
   searchIcon: {
-    fontSize: 20,
     marginRight: SPACING.sm,
   },
   searchInput: {
@@ -250,14 +336,14 @@ const styles = StyleSheet.create({
     color: COLORS.text,
   },
   scanButton: {
-    padding: SPACING.sm,
-  },
-  scanIcon: {
-    fontSize: 20,
+    padding: SPACING.xs,
+    marginLeft: SPACING.sm,
   },
   productList: {
     flex: 1,
-    padding: SPACING.lg,
+  },
+  productListContent: {
+    padding: SPACING.md,
   },
   productCard: {
     flexDirection: 'row',
@@ -266,30 +352,38 @@ const styles = StyleSheet.create({
     padding: SPACING.md,
     borderRadius: 12,
     marginBottom: SPACING.md,
-    borderWidth: 1,
-    borderColor: COLORS.border,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
   },
   productImageContainer: {
     marginRight: SPACING.md,
   },
-  productImagePlaceholder: {
-    width: 70,
-    height: 70,
+  productImage: {
+    width: 80,
+    height: 80,
     borderRadius: 8,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.background,
+  },
+  productImagePlaceholder: {
+    width: 80,
+    height: 80,
+    borderRadius: 8,
+    backgroundColor: COLORS.background,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  productImageText: {
-    fontSize: SIZES.xxl,
-    fontWeight: 'bold',
-    color: COLORS.surface,
-  },
   productDetails: {
     flex: 1,
+    justifyContent: 'center',
   },
   productName: {
-    fontSize: SIZES.md,
+    fontSize: SIZES.lg,
     fontWeight: '600',
     color: COLORS.text,
     marginBottom: 4,
@@ -301,42 +395,60 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   productStock: {
-    fontSize: SIZES.sm,
+    fontSize: SIZES.md,
     color: COLORS.textSecondary,
   },
   addButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: SPACING.sm,
   },
-  addButtonText: {
-    fontSize: 24,
-    color: COLORS.surface,
-    fontWeight: 'bold',
+  addButtonDisabled: {
+    backgroundColor: COLORS.disabled,
   },
-  optionsButton: {
-    width: 30,
-    height: 30,
+  centerContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: SPACING.xl,
   },
-  optionsIcon: {
-    fontSize: 20,
+  loadingText: {
+    marginTop: SPACING.md,
+    fontSize: SIZES.md,
     color: COLORS.textSecondary,
+  },
+  errorText: {
+    marginTop: SPACING.md,
+    fontSize: SIZES.lg,
+    color: COLORS.text,
+    textAlign: 'center',
+  },
+  retryButton: {
+    marginTop: SPACING.lg,
+    paddingVertical: SPACING.md,
+    paddingHorizontal: SPACING.xl,
+    backgroundColor: COLORS.primary,
+    borderRadius: 8,
+  },
+  retryButtonText: {
+    fontSize: SIZES.md,
+    fontWeight: '600',
+    color: COLORS.surface,
   },
   emptyState: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: SPACING.xxl,
+    paddingTop: 80,
   },
   emptyStateText: {
     fontSize: SIZES.lg,
     fontWeight: '600',
     color: COLORS.text,
+    marginTop: SPACING.md,
     marginBottom: SPACING.xs,
   },
   emptyStateSubtext: {
@@ -352,16 +464,19 @@ const styles = StyleSheet.create({
   processSaleButton: {
     backgroundColor: COLORS.primary,
     paddingVertical: SPACING.lg,
-    borderRadius: 12,
+    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
   processSaleButtonDisabled: {
-    backgroundColor: COLORS.disabled,
+    backgroundColor: COLORS.background,
   },
   processSaleButtonText: {
     fontSize: SIZES.lg,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: COLORS.surface,
+  },
+  processSaleButtonTextDisabled: {
+    color: COLORS.textSecondary,
   },
 });
