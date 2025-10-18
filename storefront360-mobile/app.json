@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "storefront360-mobile",
+    "name": "Storefront 360",
     "slug": "storefront360-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,17 +13,20 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.topiaconsult.storefront360"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "package": "com.topiaconsult.storefront360",
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
     }
   }
 }
