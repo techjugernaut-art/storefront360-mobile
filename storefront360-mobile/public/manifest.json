@@ -1,0 +1,28 @@
+{
+  "short_name": "Storefront360",
+  "name": "Storefront 360 - POS & Retail Management",
+  "description": "Complete point-of-sale and retail management system",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "orientation": "any",
+  "scope": "/",
+  "categories": ["business", "productivity", "finance"],
+  "prefer_related_applications": false,
+  "gcm_sender_id": "103953800507"
+}
