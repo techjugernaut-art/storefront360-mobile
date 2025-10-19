@@ -1,21 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, View, StyleSheet, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuthStore } from './src/store/authStore';
+import SplashScreen from './src/screens/SplashScreen';
+import OnboardingScreen from './src/screens/OnboardingScreen';
+import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import MainNavigator from './src/navigation/MainNavigator';
 import WebContainer from './src/components/WebContainer';
 import { COLORS } from './src/constants/config';
 import { initializeNotifications, onNotification } from './src/services/notifications';
 
+type AppScreen = 'splash' | 'onboarding' | 'signup' | 'login' | 'main';
+
 export default function App() {
   const { isAuthenticated, isLoading, loadUser } = useAuthStore();
+  const [currentScreen, setCurrentScreen] = useState<AppScreen>('splash');
+  const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState(false);
 
   useEffect(() => {
     // Load user from storage on app start
     loadUser();
+
+    // Check if user has completed onboarding
+    checkOnboardingStatus();
 
     // Register service worker and initialize notifications (web only)
     if (Platform.OS === 'web') {
@@ -23,6 +34,52 @@ export default function App() {
       setupNotifications();
     }
   }, []);
+
+  const checkOnboardingStatus = async () => {
+    try {
+      const completed = await AsyncStorage.getItem('onboarding_completed');
+      if (completed === 'true') {
+        setHasCompletedOnboarding(true);
+        setCurrentScreen('login');
+      }
+    } catch (error) {
+      console.error('Error checking onboarding status:', error);
+    }
+  };
+
+  const handleOnboardingComplete = async () => {
+    try {
+      await AsyncStorage.setItem('onboarding_completed', 'true');
+      setHasCompletedOnboarding(true);
+      setCurrentScreen('signup');
+    } catch (error) {
+      console.error('Error saving onboarding status:', error);
+    }
+  };
+
+  const handleSplashGetStarted = () => {
+    if (hasCompletedOnboarding) {
+      setCurrentScreen('signup');
+    } else {
+      setCurrentScreen('onboarding');
+    }
+  };
+
+  const handleSplashLogin = () => {
+    setCurrentScreen('login');
+  };
+
+  const handleSignupComplete = () => {
+    // User is now authenticated, will be handled by isAuthenticated
+  };
+
+  const handleSignupCancel = () => {
+    setCurrentScreen('login');
+  };
+
+  const handleLoginSignUp = () => {
+    setCurrentScreen('signup');
+  };
 
   // Register service worker for PWA functionality
   const registerServiceWorker = async () => {
@@ -135,12 +192,45 @@ export default function App() {
     );
   }
 
+  // Render appropriate screen based on authentication and flow state
+  const renderScreen = () => {
+    if (isAuthenticated) {
+      return (
+        <NavigationContainer>
+          <MainNavigator />
+        </NavigationContainer>
+      );
+    }
+
+    // Show onboarding flow for unauthenticated users
+    switch (currentScreen) {
+      case 'splash':
+        return (
+          <SplashScreen
+            onGetStarted={handleSplashGetStarted}
+            onLogin={handleSplashLogin}
+          />
+        );
+      case 'onboarding':
+        return <OnboardingScreen onComplete={handleOnboardingComplete} />;
+      case 'signup':
+        return (
+          <SignupScreen
+            onComplete={handleSignupComplete}
+            onCancel={handleSignupCancel}
+          />
+        );
+      case 'login':
+        return <LoginScreen onSignUp={handleLoginSignUp} />;
+      default:
+        return <LoginScreen onSignUp={handleLoginSignUp} />;
+    }
+  };
+
   return (
     <SafeAreaProvider>
       <WebContainer>
-        <NavigationContainer>
-          {isAuthenticated ? <MainNavigator /> : <LoginScreen />}
-        </NavigationContainer>
+        {renderScreen()}
       </WebContainer>
       <StatusBar style="auto" />
     </SafeAreaProvider>

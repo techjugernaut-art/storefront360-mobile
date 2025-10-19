@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { authService, User } from '../services/auth.service';
+import { authService, User, RegisterRequest } from '../services/auth.service';
 import {
   saveAuthToken,
   saveRefreshToken,
@@ -18,6 +18,7 @@ interface AuthState {
 
   // Actions
   login: (phoneNumber: string, countryCode: string, pin: string) => Promise<void>;
+  register: (data: RegisterRequest) => Promise<void>;
   logout: () => Promise<void>;
   loadUser: () => Promise<void>;
   clearError: () => void;
@@ -57,6 +58,40 @@ export const useAuthStore = create<AuthState>((set) => ({
     } catch (error: any) {
       const errorMessage =
         error.response?.data?.message || 'Login failed. Please try again.';
+      set({
+        user: null,
+        token: null,
+        isAuthenticated: false,
+        isLoading: false,
+        error: errorMessage,
+      });
+      throw error;
+    }
+  },
+
+  /**
+   * Register new user
+   */
+  register: async (data: RegisterRequest) => {
+    set({ isLoading: true, error: null });
+    try {
+      const response = await authService.register(data);
+
+      // Save to async storage
+      await saveAuthToken(response.token);
+      await saveRefreshToken(response.refreshToken);
+      await saveUser(response.user);
+
+      set({
+        user: response.user,
+        token: response.token,
+        isAuthenticated: true,
+        isLoading: false,
+        error: null,
+      });
+    } catch (error: any) {
+      const errorMessage =
+        error.response?.data?.message || 'Registration failed. Please try again.';
       set({
         user: null,
         token: null,

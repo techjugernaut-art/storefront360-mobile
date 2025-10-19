@@ -10,16 +10,19 @@ import {
   Alert,
   ActivityIndicator,
   RefreshControl,
+  Modal,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, SIZES, SPACING } from '../constants/config';
 import { productsService, Product } from '../services/products.service';
+import AddProductScreen from './AddProductScreen';
 
 export default function ProductsScreen({ navigation }: any) {
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [showAddProduct, setShowAddProduct] = useState(false);
 
   // Fetch products from API
   const fetchProducts = async (showLoader = true) => {
@@ -65,11 +68,16 @@ export default function ProductsScreen({ navigation }: any) {
   }, []);
 
   const handleAddProduct = () => {
-    Alert.alert(
-      'Add Product',
-      'Product creation feature coming soon!',
-      [{ text: 'OK' }]
-    );
+    setShowAddProduct(true);
+  };
+
+  const handleAddProductSuccess = () => {
+    setShowAddProduct(false);
+    fetchProducts();
+  };
+
+  const handleAddProductCancel = () => {
+    setShowAddProduct(false);
   };
 
   const handleProductMenu = (product: Product) => {
@@ -258,6 +266,19 @@ export default function ProductsScreen({ navigation }: any) {
           )}
         </ScrollView>
       )}
+
+      {/* Add Product Modal */}
+      <Modal
+        visible={showAddProduct}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={handleAddProductCancel}
+      >
+        <AddProductScreen
+          onSuccess={handleAddProductSuccess}
+          onCancel={handleAddProductCancel}
+        />
+      </Modal>
     </SafeAreaView>
   );
 }

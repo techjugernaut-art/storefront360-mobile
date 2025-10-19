@@ -22,7 +22,11 @@ const COUNTRY_CODES = [
   { code: '+1', country: 'USA', flag: '🇺🇸' },
 ];
 
-export default function LoginScreen() {
+interface LoginScreenProps {
+  onSignUp?: () => void;
+}
+
+export default function LoginScreen({ onSignUp }: LoginScreenProps) {
   const { login, isLoading, error } = useAuthStore();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [countryCode, setCountryCode] = useState('+233');
@@ -182,6 +186,16 @@ export default function LoginScreen() {
             <TouchableOpacity style={styles.forgotButton}>
               <Text style={styles.forgotText}>Forgot PIN?</Text>
             </TouchableOpacity>
+
+            {/* Sign Up Link */}
+            {onSignUp && (
+              <View style={styles.signupContainer}>
+                <Text style={styles.signupPrompt}>Don't have an account? </Text>
+                <TouchableOpacity onPress={onSignUp}>
+                  <Text style={styles.signupLink}>Sign Up</Text>
+                </TouchableOpacity>
+              </View>
+            )}
           </View>
 
           {/* Demo Credentials Helper */}
@@ -388,6 +402,21 @@ const styles = StyleSheet.create({
   forgotText: {
     color: COLORS.primary,
     fontSize: SIZES.md,
+  },
+  signupContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: SPACING.lg,
+  },
+  signupPrompt: {
+    color: COLORS.textSecondary,
+    fontSize: SIZES.md,
+  },
+  signupLink: {
+    color: COLORS.primary,
+    fontSize: SIZES.md,
+    fontWeight: '600',
   },
   demoContainer: {
     backgroundColor: '#FEF3C7',

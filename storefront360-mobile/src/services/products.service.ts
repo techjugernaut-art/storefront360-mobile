@@ -20,11 +20,13 @@ export interface CreateProductData {
   name: string;
   description?: string;
   price: number;
-  costPrice: number;
+  costPrice?: number;
   stock: number;
-  sku?: string;
+  sku: string;
   barcode?: string;
   categoryId?: string;
+  imageUrl?: string;
+  lowStockThreshold?: number;
 }
 
 export interface UpdateProductData extends Partial<CreateProductData> {}
@@ -92,6 +94,20 @@ class ProductsService {
       type,
     });
     return response.data;
+  }
+
+  /**
+   * Get all categories
+   */
+  async getCategories() {
+    try {
+      const response = await api.get('/api/categories');
+      return response.data;
+    } catch (error) {
+      // Return empty array if categories endpoint doesn't exist yet
+      console.warn('Categories endpoint not available:', error);
+      return { data: [] };
+    }
   }
 }
 
