@@ -26,18 +26,22 @@ export default function HomeScreen({ navigation }: any) {
 
   const fetchDashboardMetrics = async () => {
     try {
-      // TODO: Replace with actual API endpoint when available
-      // const response = await api.get('/api/dashboard/metrics');
-      // setMetrics(response.data.data);
+      const response = await api.get('/api/dashboard/metrics');
+      const data = response.data.data || response.data;
 
-      // Using sample data for now
+      setMetrics({
+        totalSales: data.totalSales || data.total_sales || 0,
+        totalProfit: data.grossProfit || data.gross_profit || 0,
+        totalExpenses: data.totalExpenses || data.total_expenses || 0,
+      });
+    } catch (error) {
+      console.error('Failed to fetch metrics:', error);
+      // Use fallback data on error
       setMetrics({
         totalSales: 850.00,
         totalProfit: 350.00,
         totalExpenses: 500.00,
       });
-    } catch (error) {
-      console.error('Failed to fetch metrics:', error);
     } finally {
       setLoading(false);
     }
